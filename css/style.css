@@ -92,37 +92,51 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 #ajax { width:100%; display:none; }
 
-.container {
+/*.container {
 	outline: 1px solid #fff;
 	outline-offset: -1px;
-}
+}*/
 
 .rd-navbar-cta a { line-height:16px; padding: 6px 26px;}
 .rd-navbar-top-panel p a { font-family:"Trebuchet MS", Helvetica, sans-serif; font-size:26px;}
 .rd-navbar-top-panel p a .icon { vertical-align:inherit; font-size:24px; }
 
-.header-text h2 { font-family:"Trebuchet MS", Helvetica, sans-serif; font-size:24px; line-height:28px; padding-bottom:45px;}
-.header-text .list li {
-	padding: 0 0 0 20px;
-	margin: 0;
-}
+.header-text h1 { font-size:24px; line-height:28px; padding-bottom:45px;}
+.header-text .list li { padding: 0 0 0 20px; margin: 0; letter-spacing: -0.02em;}
 .header-text .list li a {
 	color: #fff;
 	font-size: 14px;
 	line-height: 26px;
 }
+.header-text .list li a:hover { color: #29b6f6; text-decoration: none;}
 .header-text .list li a::before {
 	content: '';
 	width: 12px;
 	height: 10px;
 	position: absolute;
 	background: url(/img/header-list-check.png) no-repeat;
-	left: 15px;
+	margin-left: -20px;
 	margin-top: 9px;
+}
+.header-text img { margin-top:95px;}
+
+#index-hand .d-flex .d-flex { flex: 0 0 50%; }
+#index-hand .d-flex .d-flex .wrap { padding: 30px 25px; background-color:rgba(55,71,79,0.5); margin:0 10px;}
+#index-hand .d-flex .d-flex .wrap ul { padding-top:20px;}
+#index-hand .d-flex .d-flex .wrap ul li { padding:3px 0 3px 20px;}
+#index-hand .d-flex .d-flex .wrap ul li::before {
+	content:'\2014';
+	position:absolute;
+	width:10px;
+	height:10px;
+	margin-left:-20px;
+	margin-top:1px;
 }
 
 .page-footer ul.list { font-size:14px;}
 
+
+.cons-btn a { text-transform:uppercase;}
 
 /*
 

@@ -102,10 +102,10 @@
     </div>
 
     <? if ($index){ ?>
-    <div class="container section-xxl-top-50 section-50 header-text">
+    <div class="container section-xxl-top-50 section-50 section-md-bottom-110 header-text">
       <div class="row justify-content-md-center justify-content-xl-start">
         <div class="col-lg-8 col-xl-3 text-xl-left">
-          <h2>Поставка компьютерного оборудования компаративным пользователям</h2>
+          <h1>Поставка компьютерного оборудования компаративным пользователям</h1>
           <ul class="list">
             <li><a href="#">Серверное оборудование</a></li>
             <li><a href="#">Компьютерное оборудование</a></li>

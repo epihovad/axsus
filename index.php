@@ -5,6 +5,64 @@ $index = true;
 
 ob_start();
 ?>
+<section class="section-72">
+  <div class="container">
+    <div class="row text-lg-center">
+      <div class="col-lg-12 col-xl-12">
+        <h2>С нами надежно и легко</h2>
+        <p class="lead section-top-15">Работаем с государственными, частными и иностранными компаниями</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="index-hand" class="section-top-72" data-parallax="scroll" data-image-src="/img/index-hand.jpg">
+  <div class="container text-white">
+    <h2 class="text-white section-bottom-50">Наша цель - долгосрочное сотрудничество и доверительные отношения с клиентами</h2>
+    <div class="d-flex">
+      <div class="d-flex align-items-stretch text-left">
+        <div class="wrap">
+          От нас вы получите:
+          <ul>
+            <li>работу с персональным менеджером</li>
+            <li>помощь в подборе оборудования</li>
+            <li>консультации при составлении технического задания</li>
+            <li>предоставление демо-оборудования на тестирование</li>
+            <li>отсрочку платежа</li>
+            <li>специальные цены от производителей</li>
+            <li>доставку оборудования (бесплатно по Москве и Московской области)</li>
+            <li>бесплатную сборку</li>
+            <li>гарантийное и послегарантийное обслуживание</li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex align-items-stretch text-left">
+        <div class="wrap">
+          а также
+          <ul>
+            <li>максимально удобный сервис и отсутствие бюрократии</li>
+            <li>оперативное реагирование на ваши обращения</li>
+            <li>бесплатное участие в партнерских семинарах</li>
+            <li>ИТ-аудит, консультации от экспертов</li>
+            <li>рекомендации по оптимизации инфраструктуры и по закупке оборудования</li>
+            <li>Гарантированное быстрое решение проблем, связанных с приобретением и установкой компьютерного оборудования и систем</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="cons-btn section-50"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
+  </div>
+</section>
+
+<section class="section-top-72">
+  <div class="container">
+    <h2 class="section-bottom-50">Оставьте заявку<br>Все остальное мы сделаем сами</h2>
+
+    <div class="cons-btn section-50"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
+  </div>
+</section>
+
+<?/*
 <section class="section-110">
 	<div class="container">
 		<div class="row text-lg-left">
@@ -234,6 +292,6 @@ ob_start();
 		</div>
 	</div>
 </section>
-<?
+<?*/
 $content = ob_get_clean();
 require('tpl/template.php');
