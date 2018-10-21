@@ -1,0 +1,56 @@
+#jAlert
+{
+	position:absolute;
+	min-width:250px;
+	width:auto;
+	min-height:110px;
+	height:auto;
+	display:none;
+	background-color:#fff;
+	-moz-box-shadow:10px 10px 15px #1b1b1b;
+	-webkit-box-shadow:10px 10px 15px #1b1b1b;
+	-khtml-box-shadow:10px 10px 15px #1b1b1b;
+	box-shadow:10px 10px 15px #1b1b1b;
+}
+#jAlert .info_place
+{
+	padding:28px 30px 0 30px;
+	font: normal 14px 'Roboto', sans-serif;;
+	color:#000;
+	text-align:center;
+	line-height:1.5em;
+}
+#jAlert .btn_place
+{
+	height:30px;
+	padding:20px 30px 38px 30px;
+	margin-bottom:21px;
+}
+#jAlert a.ok, #jAlert a.yes, #jAlert a.no
+{
+	overflow:hidden;
+	font:400 14px/1.5 'Roboto', sans-serif;
+	text-transform:uppercase;
+	color:#000;
+	text-decoration:none;
+	padding:4px 18px 5px;
+	background-color:#fff15b;
+	-moz-border-radius:50px; /* Firefox */
+	-webkit-border-radius:50px; /* Safari and Chrome */
+	-khtml-border-radius:50px; /* Linux browsers */
+	border-radius:50px; /* Opera 10.50, IE and CSS3 */
+}
+#jAlert a.ok:hover, #jAlert a.yes:hover, #jAlert a.no:hover { background-color:#fffe4e; }
+#jAlert a.yes { margin-right:20px; }
+
+#jAlert_shadow
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.75;
+	z-index: 100;
+}

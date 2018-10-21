@@ -1,0 +1,12 @@
+/.idea
+/inc/db.php
+/error.log
+
+/tmp/*
+!/tmp/.gitkeep
+
+/uploads/*
+!/uploads/no_photo.jpg
+
+/uploads/settings/*
+!/uploads/settings/.gitkeep

@@ -1,0 +1,19 @@
+<?
+$mysql_conn = array('host'=>'localhost','login'=>'','pwd'=>'','db'=>'');
+
+if(!$mysqli = mysqli_connect($mysql_conn['host'], $mysql_conn['login'], $mysql_conn['pwd'], $mysql_conn['db'])){
+	printf("Database connection failed: %s\n", mysqli_connect_error());
+	exit;
+}
+
+mysqli_query($mysqli, 'set names utf8');
+mysqli_query($mysqli, 'set character_set_results=utf8');
+mysqli_query($mysqli, 'set character_set_connection=utf8');
+mysqli_query($mysqli, 'set character_set_client=utf8');
+mysqli_query($mysqli, 'set character_set_database=utf8');
+
+mb_internal_encoding('UTF-8');
+setlocale(LC_ALL, 'ru_RU.UTF-8');
+
+$prx = 'ps_';
+$cpanel = 'admin';
