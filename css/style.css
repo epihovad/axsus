@@ -36,9 +36,7 @@ html p a:hover { text-decoration: none;}
 	background-color: #2c2c2c;
 }
 
-.page-header .lead {
-	font-size: 17px;
-}
+.page-header .lead { font-size: 17px; }
 
 .page-header,
 .page-header .lead,
@@ -57,7 +55,7 @@ html body .page-footer-subsection {
 html body .page-footer .copyright {
 	margin-top: 43px;
 	font-size: 11px;
-	letter-spacing: 0.14em;
+	letter-spacing: 0;
 }
 
 html body .page-footer a:hover {
@@ -93,6 +91,38 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 #ajax { width:100%; display:none; }
+
+.container {
+	outline: 1px solid #fff;
+	outline-offset: -1px;
+}
+
+.rd-navbar-cta a { line-height:16px; padding: 6px 26px;}
+.rd-navbar-top-panel p a { font-family:"Trebuchet MS", Helvetica, sans-serif; font-size:26px;}
+.rd-navbar-top-panel p a .icon { vertical-align:inherit; font-size:24px; }
+
+.header-text h2 { font-family:"Trebuchet MS", Helvetica, sans-serif; font-size:24px; line-height:28px; padding-bottom:45px;}
+.header-text .list li {
+	padding: 0 0 0 20px;
+	margin: 0;
+}
+.header-text .list li a {
+	color: #fff;
+	font-size: 14px;
+	line-height: 26px;
+}
+.header-text .list li a::before {
+	content: '';
+	width: 12px;
+	height: 10px;
+	position: absolute;
+	background: url(/img/header-list-check.png) no-repeat;
+	left: 15px;
+	margin-top: 9px;
+}
+
+.page-footer ul.list { font-size:14px;}
+
 
 /*
 

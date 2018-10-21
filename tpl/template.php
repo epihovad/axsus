@@ -38,12 +38,10 @@
         <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-top-panel"><span></span></button>
         <div class="rd-navbar-collapse rd-navbar-top-panel">
           <ul class="list-inline">
-            <li><a class="fab fa-vk icon icon-dark icon-xs" href="#"></a></li>
-            <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="#"></a></li>
             <li><a class="fab fa-instagram icon icon-dark icon-xs" href="#"></a></li>
-            <li><a class="fab fa-youtube icon icon-dark icon-xs" href="#"></a></li>
+            <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="#"></a></li>
           </ul>
-          <p class="offset-none font-weight-bold">
+          <p class="offset-none">
             <a href="callto:84992133401"><span class="icon text-white icon-xs fas fa-phone"></span>8.499.213.34.01</a>
           </p>
         </div>
@@ -76,9 +74,9 @@
                   </li>
                   <li><a href="#">Ссылка 2</a></li>
                 </ul>
-              </li>
-              <li><a href="#">О компании</a></li>
-              <li><a href="#">Услуги</a>
+              </li><li>
+                <a href="/about.htm">О компании</a>
+              </li><li><a href="#">Услуги</a>
                 <ul class="rd-navbar-dropdown">
                   <li><a href="#">Серверное оборудование</a></li>
                   <li><a href="#">Компьютерное оборудование</a></li>
@@ -90,12 +88,12 @@
                   <li><a href="#">Оргтехника</a></li>
                   <li><a href="#">Расходные материалы</a></li>
                 </ul>
-              </li>
-              <li><a href="#">Кейсы</a></li>
-              <li><a href="#">Контакты</a></li>
-              <li><a href="#">Полезно знать</a></li>
-              <li class="rd-navbar-cta">
-                <a class="btn btn-primary" href="#" style="line-height: 18px;padding: 6px 26px;">бесплатная<br>консультация</a>
+              </li><li>
+                <a href="#">Кейсы</a>
+              </li><li><a href="#">Контакты</a>
+              </li><li><a href="#">Полезно знать</a>
+              </li><li class="rd-navbar-cta">
+                <a class="btn btn-primary" href="#">бесплатная<br>консультация</a>
               </li>
             </ul>
           </div>
@@ -104,18 +102,22 @@
     </div>
 
     <? if ($index){ ?>
-    <div class="container section-xxl-top-110 section-72 section-md-bottom-110">
+    <div class="container section-xxl-top-50 section-50 header-text">
       <div class="row justify-content-md-center justify-content-xl-start">
         <div class="col-lg-8 col-xl-3 text-xl-left">
-          <h2 class="font-weight-bold">IT-ПРОЕКТЫ КОНСАЛТИНГ АУТСОРСИНГ</h2>
-          <p class="lead">
-            Наша задача – приложить максимум усилий, чтобы бренд AXSUS Projects ассоциировался у партнеров
-            с высокими стандартами качества дистрибьюторских услуг.
-          </p>
-          <p>
-            Главной ценностью компании мы считаем уникальный опыт и знания, накопленные за  годы работы,
-            которые мы эффективно применяем сегодня в нашем бизнесе.
-          </p>
+          <h2>Поставка компьютерного оборудования компаративным пользователям</h2>
+          <ul class="list">
+            <li><a href="#">Серверное оборудование</a></li>
+            <li><a href="#">Компьютерное оборудование</a></li>
+            <li><a href="#">Системы хранения данных</a></li>
+            <li><a href="#">Сетевое оборудование</a></li>
+            <li><a href="#">Системы хранения данных</a></li>
+            <li><a href="#">Программное обеспечение</a></li>
+            <li><a href="#">Системы бесперебойного питания</a></li>
+            <li><a href="#">Оргтехника</a></li>
+            <li><a href="#">Расходные материалы</a></li>
+          </ul>
+          <img src="/img/header-map.png">
         </div>
       </div>
     </div>
@@ -186,21 +188,26 @@
           <div class="col-md-6 col-lg-3 offset-xl-1 order-lg-1">
             <h4>Информация</h4>
             <ul class="list">
-              <li><a href="#">О компании</a></li>
+              <li><a href="/">Главная</a></li>
+              <li><a href="/about.htm">О компании</a></li>
               <li><a href="#">Услуги</a></li>
-              <li><a href="#">Бренды</a></li>
-              <li><a href="#">Спецпредложения</a></li>
+              <li><a href="#">Кейсы</a></li>
               <li><a href="#">Контакты</a></li>
+              <li><a href="#">Полезно знать</a></li>
             </ul>
           </div>
           <div class="col-md-6 col-lg-3 order-lg-1 offset-md-top-0">
             <h4>Услуги</h4>
             <ul class="list">
-              <li><a href="#">Поставка техники</a></li>
-              <li><a href="#">Поставка ПО</a></li>
-              <li><a href="#">Проектирование</a></li>
-              <li><a href="#">Аутсорсинг</a></li>
-              <li><a href="#">Комплексные решения</a></li>
+              <li><a href="#">Серверное оборудование</a></li>
+              <li><a href="#">Компьютерное оборудование</a></li>
+              <li><a href="#">Системы хранения данных</a></li>
+              <li><a href="#">Сетевое оборудование</a></li>
+              <li><a href="#">Системы хранения данных</a></li>
+              <li><a href="#">Программное обеспечение</a></li>
+              <li><a href="#">Системы бесперебойного питания</a></li>
+              <li><a href="#">Оргтехника</a></li>
+              <li><a href="#">Расходные материалы</a></li>
             </ul>
           </div>
           <div class="col-lg-5">
