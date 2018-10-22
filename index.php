@@ -5,14 +5,37 @@ $index = true;
 
 ob_start();
 ?>
-<section class="section-72">
+<section id="index-promo" class="section-top-72">
   <div class="container">
-    <div class="row text-lg-center">
-      <div class="col-lg-12 col-xl-12">
-        <h2>С нами надежно и легко</h2>
-        <p class="lead section-top-15">Работаем с государственными, частными и иностранными компаниями</p>
+    <h2>С нами надежно и легко</h2>
+    <p class="lead section-top-15">Работаем с государственными, частными и иностранными компаниями</p>
+    <div class="row">
+      <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
+        <img src="/img/ipromo-10y.png">
+        <p>10 лет на рынке компьютерной техники и информационных технологий</p>
+      </div>
+      <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
+        <img src="/img/ipromo-100plus.png">
+        <p>100+ корпоративных клиентов сотрудничают с нами на постоянной основе</p>
+      </div>
+      <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
+        <img src="/img/ipromo-tm.png">
+        <p>Сертифицированный поставщик продукции известных брендов</p>
+      </div>
+      <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
+        <img src="/img/ipromo-rst.png">
+        <p>Только легальная техника. Все оборудование имеет сертификаты соответствия от РСТ</p>
+      </div>
+      <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
+        <img src="/img/ipromo-dd.png">
+        <p>Прямые поставки со складов производителей</p>
+      </div>
+      <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
+        <img src="/img/ipromo-state-order.png">
+        <p>Работаем в сфере государственных закупок</p>
       </div>
     </div>
+    <div class="cons-btn section-50"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
   </div>
 </section>
 
@@ -54,244 +77,78 @@ ob_start();
   </div>
 </section>
 
-<section class="section-top-72">
+<section id="index-order-way" class="section-top-72">
   <div class="container">
     <h2 class="section-bottom-50">Оставьте заявку<br>Все остальное мы сделаем сами</h2>
-
+    <div class="d-flex">
+      <div class="d-flex align-items-center text-center">
+        <img src="/img/index-order-way-start.png">
+      </div>
+      <div class="d-flex align-items-center text-center">
+        Вы оставляете заявку по телефону или электронной почте.
+      </div>
+      <div class="d-flex align-items-center text-center">
+        <img src="/img/index-order-way-arrow.png">
+      </div>
+      <div class="d-flex align-items-center text-center">
+        С вами связывается персональный  менеджер. Он уточняет детали и принимает заказ в работу.
+      </div>
+      <div class="d-flex align-items-center text-center">
+        <img src="/img/index-order-way-arrow.png">
+      </div>
+      <div class="d-flex align-items-center text-center">
+        Менеджер составляет одно или несколько коммерческих  предложений с ценами и условиями поставки.
+      </div>
+      <div class="d-flex align-items-center text-center">
+        <img src="/img/index-order-way-arrow.png">
+      </div>
+      <div class="d-flex align-items-center text-center">
+        Вы выбираете финальное КП. Обсуждаем условия поставки и подписываем договор.
+      </div>
+      <div class="d-flex align-items-center text-center">
+        <img src="/img/index-order-way-arrow.png">
+      </div>
+      <div class="d-flex align-items-center text-center">
+        Мы поставляем вам оборудование и комплект необходимых сопроводительных документов в сроки, предусмотренные договором
+      </div>
+      <div class="d-flex align-items-center text-center">
+        <img src="/img/index-order-way-arrow.png">
+      </div>
+      <div class="d-flex align-items-center text-center">
+        Монтаж, настройка и тестирование оборудования (производятся по желанию заказчика)
+      </div>
+      <div class="d-flex align-items-center text-center">
+        <img src="/img/index-order-way-finish.png">
+      </div>
+    </div>
     <div class="cons-btn section-50"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
   </div>
 </section>
 
-<?/*
-<section class="section-110">
-	<div class="container">
-		<div class="row text-lg-left">
-			<div class="col-lg-12 col-xl-12">
-				<h1>Новости компании</h1>
-			</div>
-		</div>
-
-		<div class="text-left owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30">
-
-			<div class="row">
-				<div class="col-lg-3 d-none d-lg-block">
-					<hr class="divider">
-				</div>
-				<div class="col-lg-9 col-md-10 post-blog-preview">
-					<h4>Поставка ПК</h4>
-					<p class="post-blog-preview-description text-spruce">
-						Компания "АКСИС ПРОЕКТЫ" осуществила
-						поставку и монтаж серверов HP и рабочих
-						станций для проекта по модернизации
-						вычислительной инфраструктуры на
-						производственном предприятии в г. Рязань.
-					</p>
-					<a class="btn btn-default btn-secondary" href="#">подробнее</a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3 d-none d-lg-block">
-					<hr class="divider">
-				</div>
-				<div class="col-lg-9 col-md-10 post-blog-preview">
-					<h4>Поставка ИБП</h4>
-					<p class="post-blog-preview-description text-spruce">
-						Компания "АКСИС ПРОЕКТЫ" осуществила
-						поставку и монтаж серверов HP и рабочих
-						станций для проекта по модернизации
-						вычислительной инфраструктуры на
-						производственном предприятии в г. Рязань.
-					</p>
-					<a class="btn btn-default btn-secondary" href="#">подробнее</a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3 d-none d-lg-block">
-					<hr class="divider">
-				</div>
-				<div class="col-lg-9 col-md-10 post-blog-preview">
-					<h4>Сдан ЦОД в Самаре</h4>
-					<p class="post-blog-preview-description text-spruce">
-						Компания "АКСИС ПРОЕКТЫ" осуществила
-						поставку и монтаж серверов HP и рабочих
-						станций для проекта по модернизации
-						вычислительной инфраструктуры на
-						производственном предприятии в г. Рязань.
-					</p>
-					<a class="btn btn-default btn-secondary" href="#">подробнее</a>
-				</div>
-			</div>
-
-		</div>
-	</div>
+<section id="index-brands" class="section-top-50">
+  <div class="container">
+    <div class="d-flex">
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand1.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand2.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand3.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand4.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand1.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand2.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand3.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand4.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand4.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand3.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand2.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand1.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand4.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand3.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand2.png"></a></div>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand1.png"></a></div>
+    </div>
+    <div class="section-top-20 section-bottom-50"><a class="link" href="#">ВСЕ БРЕНДЫ</a></div>
+  </div>
 </section>
 
-<hr class="divider">
-
-<section class="section-110">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7 offset-xxl-1 order-lg-1"><img class="img-responsive" src="/img/index-02.png" width="670" height="463" alt=""></div>
-			<div class="align-self-lg-center col-lg-4 text-lg-left">
-				<h1>О компании</h1>
-				<hr class="divider divider-70 divider-md-left">
-				<p class="lead">
-					«АКСИС ПРОЕКТЫ» - небольшой коллектив ИТ-специалистов зрелого профессионального возраста.
-					Да-да, к сожалению, мы пока не можем позволить себе быть «кузницей кадров» и допускать до проектов «вчерашних студентов» (все та же забота о «бочечке»).
-					Именно поэтому, в нашем штате только проверенные исполнители. Наш средний стаж работы в разных секторах ИТ-отрасли (проектирование, монтаж, разработка) превышает 12 лет.
-				</p>
-				<a class="link" href="#">узнать больше</a>
-			</div>
-		</div>
-	</div>
-</section>
-
-<hr class="divider">
-
-<section class="section-110">
-	<div class="container">
-		<div class="row text-lg-left">
-			<div class="col-lg-4 col-xl-3">
-				<h1>Отзывы</h1>
-			</div>
-			<div class="col-lg-6 col-xl-5">
-				<p class="lead">
-					Слова наших клиентов сами говорят о нашем уровне
-					обслуживания и успехов, которых они достигли
-				</p>
-			</div>
-		</div>
-		<!-- Owl Carousel-->
-		<div class="text-left owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30">
-			<blockquote class="quote">
-				<p>
-					<q>
-						Сотрудничать с «АКСИС ПРОЕКТЫ» очень выгодно и интересно.
-						Методологическая и экспертная поддержка сотрудниками компании проводиться
-						на всех этапах, что дает отличную возможность добиться максимального эффекта от проекта.
-						Собственные облачные технологии компании
-						дают уникальную возможность решать конкретные поставленные задачи более эффективно.
-					</q>
-				</p>
-				<p>
-					<cite><span class="text-shaft font-weight-bold">Иванов Алексей</span><br>IT-директор компании «XCOM»</cite>
-				</p>
-			</blockquote>
-			<blockquote class="quote">
-				<p>
-					<q>
-						Сотрудничать с «АКСИС ПРОЕКТЫ» очень выгодно и интересно.
-						Методологическая и экспертная поддержка сотрудниками компании проводиться
-						на всех этапах, что дает отличную возможность добиться максимального эффекта от проекта.
-						Собственные облачные технологии компании
-						дают уникальную возможность решать конкретные поставленные задачи более эффективно.
-					</q>
-				</p>
-				<p>
-					<cite><span class="text-shaft font-weight-bold">Петров Алексей</span><br>IT-директор компании «XCOM»</cite>
-				</p>
-			</blockquote>
-			<blockquote class="quote">
-				<p>
-					<q>
-						Сотрудничать с «АКСИС ПРОЕКТЫ» очень выгодно и интересно.
-						Методологическая и экспертная поддержка сотрудниками компании проводиться
-						на всех этапах, что дает отличную возможность добиться максимального эффекта от проекта.
-					</q>
-				</p>
-				<p>
-					<cite><span class="text-shaft font-weight-bold">Сидоров Алексей</span><br>IT-директор компании «XCOM»</cite>
-				</p>
-			</blockquote>
-		</div>
-	</div>
-</section>
-
-<hr class="divider">
-
-<section class="section-110">
-	<div class="container">
-		<h1>Часто задаваемые вопросы</h1>
-		<div class="row">
-
-			<div class="col-md-6">
-				<div class="block-content text-justify">
-					<div class="block-content-title">Действительно ли существует экономия при заказе IT аутсорсинга?</div>
-					<p class="block-content-descr">
-						Данный вопрос оказывается достаточно спорным. С одной стороны
-						затраты ИТ аутсорсинга могут оказаться в некоторых случаях несколько
-						выше в сравнении с содержанием в штате собственного сотрудника.
-						При этом в ходе проведения расчетных данных компания не учитывает
-						скрытых затрат вспомогательных подразделений, а именно бухгалтерии,
-						HR, юридической, административно-хозяйственной службы и т.д.
-						Также следует учесть, что содержание одного сотрудника недостаточно.
-						В итоге, проводя полную оценку стоимости содержания, скрытых затрах
-						и недополученной прибыли в случае простоев IT систем в ходе
-						отсутствия сотрудника на месте, неспособности справиться с текущей
-						задачей, выгода услуг аутсорсинга IT становится неоспоримой.
-						Компания-заказчик при заказе аутсорсинга IT получает и иные выгоды,
-						сказывающиеся на качестве деятельности. Вместо пары сотрудников
-						на нее работает штат специалистов, способных обеспечить доступ
-						к лучшим компетенциям, проведению экспертизы, гибкость IT услуг,
-						предоставление заказчику возможности фокусирования
-						услуг на главном бизнесе.
-					</p>
-				</div>
-			</div>
-			<div class="col-md-6 offset-top-50 offset-md-top-0">
-				<div class="block-content text-justify">
-					<div class="block-content-title">Как защитить конфиденциальную информацию, предотвратить ее попадание к конкурентам</div>
-					<p class="block-content-descr">
-						В данном случае компания «AXSUS Projects» полностью защищает интересы
-						заказчика. В ходе заключения основного контракта, предусматривающего
-						оказание IT услуг, обязательно составляется доп. соглашение о
-						конфиденциальности. К сожалению, практика показывает, что основное
-						число утечек конфиденциальной информации возникает по причине
-						деятельности IT персонала в штате компании-заказчика.
-					</p>
-				</div>
-			</div>
-			<div class="col-md-6 offset-top-50">
-				<div class="block-content text-justify">
-					<div class="block-content-title">Действительно ли существует экономия при заказе IT аутсорсинга?</div>
-					<p class="block-content-descr">
-						Данный вопрос оказывается достаточно спорным. С одной стороны
-						затраты ИТ аутсорсинга могут оказаться в некоторых случаях несколько
-						выше в сравнении с содержанием в штате собственного сотрудника.
-						При этом в ходе проведения расчетных данных компания не учитывает
-						скрытых затрат вспомогательных подразделений, а именно бухгалтерии,
-						HR, юридической, административно-хозяйственной службы и т.д.
-						Также следует учесть, что содержание одного сотрудника недостаточно.
-						В итоге, проводя полную оценку стоимости содержания, скрытых затрах
-						и недополученной прибыли в случае простоев IT систем в ходе
-						отсутствия сотрудника на месте, неспособности справиться с текущей
-						задачей, выгода услуг аутсорсинга IT становится неоспоримой.
-						Компания-заказчик при заказе аутсорсинга IT получает и иные выгоды,
-						сказывающиеся на качестве деятельности. Вместо пары сотрудников
-						на нее работает штат специалистов, способных обеспечить доступ
-						к лучшим компетенциям, проведению экспертизы, гибкость IT услуг,
-						предоставление заказчику возможности фокусирования
-						услуг на главном бизнесе.
-					</p>
-				</div>
-			</div>
-			<div class="col-md-6 offset-top-50">
-				<div class="block-content text-justify">
-					<div class="block-content-title">Как защитить конфиденциальную информацию, предотвратить ее попадание к конкурентам</div>
-					<p class="block-content-descr">
-						В данном случае компания «AXSUS Projects» полностью защищает интересы
-						заказчика. В ходе заключения основного контракта, предусматривающего
-						оказание IT услуг, обязательно составляется доп. соглашение о
-						конфиденциальности. К сожалению, практика показывает, что основное
-						число утечек конфиденциальной информации возникает по причине
-						деятельности IT персонала в штате компании-заказчика.
-					</p>
-				</div>
-			</div>
-
-		</div>
-	</div>
-</section>
-<?*/
+<?
 $content = ob_get_clean();
 require('tpl/template.php');

@@ -1,0 +1,11 @@
+@media (max-width: 575px) {
+
+	#index-hand .d-flex { flex-wrap:wrap; }
+	#index-hand .d-flex .d-flex { flex: 0 0 100%; }
+	#index-hand .d-flex .d-flex + .d-flex .wrap { margin-top:20px; }
+
+	.col-xs-12 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
