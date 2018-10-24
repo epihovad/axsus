@@ -252,5 +252,11 @@
 
 <script type="text/javascript" src="/js/parallax.min.js"></script>
 
+<?
+foreach ($const['js'] as $js) {
+  echo $js;
+}
+?>
+
 </body>
 </html>
