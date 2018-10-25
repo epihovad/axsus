@@ -1,17 +1,22 @@
 <style>
   #about-us { color:#fff; text-align:left; font-size:16px; line-height:22px;}
-  #about-us h1 { margin:0; padding:40px 0 50px; text-align:center; color:#fff; font-size:46px;}
+  #about-us h1 { margin:0; padding:40px 0 50px; text-align:center; color:#fff; font-size:46px; line-height: 48px;}
   #about-us .row { margin-top:0; margin-bottom:0; padding-bottom:50px; }
   #about-us .about-left { text-shadow:0 0 10px rgba(0, 0, 0, 0.9); }
   #about-us .about-right-bg { background:url(/img/about-right-bg.png); padding:20px 35px; text-align:left; text-shadow:0 0 10px rgba(0, 0, 0, 0.9); }
   #about-us .about-right-bg h3 { font-size:24px; color:#fff; margin:0; padding:0 0 20px; text-shadow:none; text-align:center;}
+  @media (max-width: 767px) {
+    #about-us .about-right { margin-top:30px;}
+  }
+  #our-sert { background-color:#f8f8f8;}
+  #our-sert img, #our-advance img { border:2px solid #e1e1e1; width:100%; max-width:335px; }
 </style>
 
 <section id="about-us" data-parallax="scroll" data-image-src="/img/about-bg.jpg">
   <div class="container">
     <h1>Вас приветствует компания<br>«АКСИС Проекты»!</h1>
     <div class="row">
-      <div class="about-left col-xs-7 col-sm-7 col-md-7">
+      <div class="about-left col-xs-7 col-sm-12 col-md-7">
         <div class="about-left-bg">
           Мы предлагаем широкий спектр продукции и услуг для создания
           современной, эффективной и надежной IT-инфраструктуры в
@@ -34,7 +39,7 @@
           IT-специалистов и сотрудников отделов закупки.
         </div>
       </div>
-      <div class="about-right col-xs-5 col-sm-5 col-md-5">
+      <div class="about-right col-xs-5 col-sm-12 col-md-5">
         <div class="about-right-bg">
           <h3>Каждый клиент для нас</h3>
           как новый друг, которому мы очень рады.<br><br>
@@ -54,14 +59,6 @@
 
   </div>
 </section>
-
-<? /*ob_start()?>
-<script>
-  $(function () {
-
-  });
-</script>
-<? $const['js'][] = ob_get_clean();*/ ?>
 
 <section id="about-num-list" class="section-top-20 section-sm-34 section-md-50 section-lg-top-72">
   <div class="container">
@@ -137,4 +134,35 @@
 
     <div class="cons-btn section-top-34 section-bottom-50 section-sm-bottom-34 section-md-bottom-34"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
   </div>
+</section>
+
+<section id="our-sert" class="section-34 section-md-50 section-lg-72">
+  <div class="container">
+    <h2>Наши сертификаты</h2>
+    <p class="lead section-top-15 section-bottom-50">
+      Мы являемся сертифицированными партнерами<br>
+      ведущих мировых производителей
+    </p>
+    <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="3" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30">
+      <div class="d-flex justify-content-center"><a href="#"><img src="/img/sert-mini.jpg"></a></div>
+      <div class="d-flex justify-content-center"><a href="#"><img src="/img/sert-mini.jpg"></a></div>
+      <div class="d-flex justify-content-center"><a href="#"><img src="/img/sert-mini.jpg"></a></div>
+    </div>
+</section>
+
+<section id="our-advance" class="section-top-34 section-md-top-50 section-lg-top-72">
+  <div class="container">
+    <h2>Наши успехи и достижения</h2>
+    <p class="lead section-top-15 section-bottom-50">отмечают не только довольные клиенты, но и партнеры по бизнесу</p>
+    <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="3" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30">
+      <div class="d-flex justify-content-center"><a href="#"><img src="/img/advance-mini.jpg"></a></div>
+      <div class="d-flex justify-content-center"><a href="#"><img src="/img/advance-mini.jpg"></a></div>
+      <div class="d-flex justify-content-center"><a href="#"><img src="/img/advance-mini.jpg"></a></div>
+    </div>
+    <p class="lead section-top-34">
+      Высокая квалификация сотрудников компании «АКСИС Проекты» подтверждена дипломами и сертификатами по результатам
+      экзаменов и тестов, пройденных в учебных центрах компаний-производителей. Успехи работы выражаются и в наградах за высокие
+      объемы продаж компьютерной техники и оборудования от наших поставщиков.
+    </p>
+    <div class="cons-btn section-top-34 section-bottom-72"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
 </section>

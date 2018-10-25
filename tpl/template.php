@@ -19,6 +19,22 @@
   <link href="/css/media.css?v=20180917" rel="stylesheet" type="text/css" />
   <link href="/css/style_new.css?v=1" rel="stylesheet">
 
+  <script src="/js/core.min.js"></script>
+  <script src="/js/spec.js"></script>
+
+  <script src="/js/arcticmodal/jquery.arcticmodal-0.3.min.js"></script>
+  <link rel="stylesheet" href="/js/arcticmodal/jquery.arcticmodal-0.3.css">
+  <link rel="stylesheet" href="/js/arcticmodal/themes/simple.css">
+
+  <link rel="stylesheet" href="/js/jAlert/jAlert.css" type="text/css" />
+  <script src="/js/jAlert/jquery.jAlert.min.js"></script>
+
+  <script src="/js/inputmask.min.js"></script>
+  <script src="/js/inputmask.phone.extensions.min.js"></script>
+
+  <script src="/js/parallax.min.js"></script>
+  <script src="/js/scroll-startstop.events.jquery.js"></script>
+
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -106,7 +122,7 @@
     <div class="container section-xxl-top-50 section-50 section-md-bottom-110 header-text">
       <div class="row justify-content-md-center justify-content-xl-start">
         <div class="col-lg-8 col-xl-3 text-xl-left">
-          <h1>Поставка компьютерного оборудования компаративным пользователям</h1>
+          <h1>Поставка компьютерного оборудования корпоративным пользователям</h1>
           <ul class="list">
             <li><a href="#">Серверное оборудование</a></li>
             <li><a href="#">Компьютерное оборудование</a></li>
@@ -118,7 +134,7 @@
             <li><a href="#">Оргтехника</a></li>
             <li><a href="#">Расходные материалы</a></li>
           </ul>
-          <img src="/img/header-map.png">
+          <img id="header-map" src="/img/header-map.png" style="display:none">
         </div>
       </div>
     </div>
@@ -134,7 +150,7 @@
       <div class="container">
         <ol class="breadcrumb">
           <li><a href="/">Главная</a></li>
-          <li class="active">Financial Planning</li>
+          <li class="active">О компании</li>
         </ol>
       </div>
     </section>
@@ -162,7 +178,7 @@
                   <input class="form-control" id="contact-email" type="email" name="email" data-constraints="@Required @Email">
                 </div>
               </div>
-              <button class="btn btn-primary offset-sm-left-10 offset-top-10 offset-sm-top-0" type="submit">Submit</button>
+              <button class="btn btn-primary offset-sm-left-10 offset-top-10 offset-sm-top-0" type="submit">Отправить</button>
             </form>
           </div>
           <div class="offset-xxl-1 col-lg-6 offset-top-50 offset-lg-top-0">
@@ -236,27 +252,6 @@
 </div>
 
 <iframe name="ajax" id="ajax"></iframe>
-
-<script src="/js/core.min.js"></script>
-<script src="/js/script.js"></script>
-
-<script src="/js/arcticmodal/jquery.arcticmodal-0.3.min.js"></script>
-<link rel="stylesheet" href="/js/arcticmodal/jquery.arcticmodal-0.3.css">
-<link rel="stylesheet" href="/js/arcticmodal/themes/simple.css">
-
-<link rel="stylesheet" href="/js/jAlert/jAlert.css" type="text/css" />
-<script type="text/javascript" src="/js/jAlert/jquery.jAlert.min.js"></script>
-
-<script src="/js/inputmask.min.js"></script>
-<script src="/js/inputmask.phone.extensions.min.js"></script>
-
-<script type="text/javascript" src="/js/parallax.min.js"></script>
-
-<?
-foreach ($const['js'] as $js) {
-  echo $js;
-}
-?>
 
 </body>
 </html>

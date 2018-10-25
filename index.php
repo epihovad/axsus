@@ -5,41 +5,43 @@ $index = true;
 
 ob_start();
 ?>
-<section id="index-promo" class="section-top-72">
+<section id="index-promo" class="section-34 section-sm-34 section-md-34 section-lg-top-72">
   <div class="container">
     <h2>С нами надежно и легко</h2>
     <p class="lead section-top-15">Работаем с государственными, частными и иностранными компаниями</p>
     <div class="row">
       <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
-        <img src="/img/ipromo-10y.png">
+        <img src="/img/ipromo-10y.png" class="offset-top-42 offset-sm-top-42 offset-lg-top-62">
         <p>10 лет на рынке компьютерной техники и информационных технологий</p>
       </div>
       <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
-        <img src="/img/ipromo-100plus.png">
+        <img src="/img/ipromo-100plus.png" class="offset-top-42 offset-sm-top-42 offset-lg-top-62">
         <p>100+ корпоративных клиентов сотрудничают с нами на постоянной основе</p>
       </div>
       <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
-        <img src="/img/ipromo-tm.png">
+        <img src="/img/ipromo-tm.png" class="offset-top-42 offset-sm-top-42 offset-lg-top-62">
         <p>Сертифицированный поставщик продукции известных брендов</p>
       </div>
       <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
-        <img src="/img/ipromo-rst.png">
+        <img src="/img/ipromo-rst.png" class="offset-top-42 offset-sm-top-42 offset-lg-top-62">
         <p>Только легальная техника. Все оборудование имеет сертификаты соответствия от РСТ</p>
       </div>
       <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
-        <img src="/img/ipromo-dd.png">
+        <img src="/img/ipromo-dd.png" class="offset-top-42 offset-sm-top-42 offset-lg-top-62">
         <p>Прямые поставки со складов производителей</p>
       </div>
       <div class="col col-xs-12 col-sm-6 col-lg-4 text-center">
-        <img src="/img/ipromo-state-order.png">
+        <img src="/img/ipromo-state-order.png" class="offset-top-42 offset-sm-top-42 offset-lg-top-62">
         <p>Работаем в сфере государственных закупок</p>
       </div>
     </div>
-    <div class="cons-btn section-50"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
+    <div class="cons-btn section-top-50 section-bottom-34 section-sm-bottom-34 section-md-bottom-34">
+      <a class="btn btn-primary" href="#">получить бесплатную консультацию</a>
+    </div>
   </div>
 </section>
 
-<section id="index-hand" class="section-top-72" data-parallax="scroll" data-image-src="/img/index-hand.jpg">
+<section id="index-hand" class="section-34 section-sm-34 section-md-34 section-lg-top-72" data-parallax="scroll" data-image-src="/img/index-hand.jpg">
   <div class="container text-white">
     <h2 class="text-white section-bottom-50">Наша цель - долгосрочное сотрудничество и доверительные отношения с клиентами</h2>
     <div class="d-flex">
@@ -73,11 +75,13 @@ ob_start();
         </div>
       </div>
     </div>
-    <div class="cons-btn section-50"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
+    <div class="cons-btn section-top-50 section-bottom-34 section-sm-bottom-34 section-md-bottom-34">
+      <a class="btn btn-primary" href="#">получить бесплатную консультацию</a>
+    </div>
   </div>
 </section>
 
-<section id="index-order-way" class="section-top-72">
+<section id="index-order-way" class="section-34 section-sm-34 section-md-34 section-lg-top-72">
   <div class="container">
     <h2 class="section-bottom-50">Оставьте заявку<br>Все остальное мы сделаем сами</h2>
     <div class="d-flex">
@@ -121,29 +125,18 @@ ob_start();
         <img src="/img/index-order-way-finish.png">
       </div>
     </div>
-    <div class="cons-btn section-50"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
+    <div class="cons-btn section-top-50 section-bottom-34 section-sm-bottom-34 section-md-bottom-34">
+      <a class="btn btn-primary" href="#">получить бесплатную консультацию</a>
+    </div>
   </div>
 </section>
 
 <section id="index-brands" class="section-top-50">
   <div class="container">
     <div class="d-flex">
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand1.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand2.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand3.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand4.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand1.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand2.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand3.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand4.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand4.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand3.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand2.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand1.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand4.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand3.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand2.png"></a></div>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand1.png"></a></div>
+      <? for($n=1; $n < 40; $n++){ ?>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand<?=rand(1,4)?>.png"></a></div>
+			<?}?>
     </div>
     <div class="section-top-20 section-bottom-50"><a class="link" href="#">ВСЕ БРЕНДЫ</a></div>
   </div>

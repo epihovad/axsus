@@ -1,261 +1,172 @@
-$(function () {
+/**
+ * Global variables
+ */
+"use strict";
+var isNoviBuilder = window.xMode;
+var userAgent = navigator.userAgent.toLowerCase(),
+    initialDate = new Date(),
 
-  Ch2btn();
-  iReviews();
-  iGallery();
-  SeanseCalendarChDay();
-  SelectSeanse();
-  chQuant();
-  iFAQ();
+    $document,
+    $window,
+    $html,
+
+    isDesktop,
+    isIE = userAgent.indexOf("msie") != -1 ? parseInt(userAgent.split("msie")[1]) : userAgent.indexOf("trident") != -1 ? 11 : userAgent.indexOf("edge") != -1 ? 12 : false,
+    isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+    isTouch = "ontouchstart" in window;
+
+/**
+ * Initialize All Scripts
+ */
+$(document).ready(function () {
+
+  $document = $(document);
+  $window = $(window);
+  $html = $("html");
+
+  isDesktop = $html.hasClass("desktop");
+
   //
-  $('a.back').click(function(){ history.back(); return false; });
-  //
-  Inputmask({mask: '+7 (999) 999-99-99', showMaskOnHover: false}).mask($('#fbron input[name="phone"]'));
-  //
-  $('header .hb3 button').click(function(){
-    jPop('/inc/actions.php?show=popup_bron');
-  });
-  //
-  $('header .callme a').click(function(){
-    jPop('/inc/actions.php?show=callme');
-    return false;
-  });
-  //
-  $('#bron button').click(function(){
-    var day = $('#seanse-list .bron-day.active :checkbox:checked').attr('day');
-    if(day != undefined){
-      jPop('/inc/actions.php?show=popup_bron&day=' + day);
+  if($('header').height() > 920){
+    $('#header-map').show();
+  }
+
+  /**
+   * @desc Initialize owl carousel plugin
+   * @param {object} c - carousel jQuery object
+   */
+  function initOwlCarousel(c) {
+    var aliaces = ["-", "-sm-", "-md-", "-lg-", "-xl-", "-xxl-"],
+      values = [0, 576, 768, 992, 1200, 1600],
+      responsive = {};
+
+    for (var j = 0; j < values.length; j++) {
+      responsive[values[j]] = {};
+      for (var k = j; k >= -1; k--) {
+        if (!responsive[values[j]]["items"] && c.attr("data" + aliaces[k] + "items")) {
+          responsive[values[j]]["items"] = k < 0 ? 1 : parseInt(c.attr("data" + aliaces[k] + "items"), 10);
+        }
+        if (!responsive[values[j]]["stagePadding"] && responsive[values[j]]["stagePadding"] !== 0 && c.attr("data" + aliaces[k] + "stage-padding")) {
+          responsive[values[j]]["stagePadding"] = k < 0 ? 0 : parseInt(c.attr("data" + aliaces[k] + "stage-padding"), 10);
+        }
+        if (!responsive[values[j]]["margin"] && responsive[values[j]]["margin"] !== 0 && c.attr("data" + aliaces[k] + "margin")) {
+          responsive[values[j]]["margin"] = k < 0 ? 30 : parseInt(c.attr("data" + aliaces[k] + "margin"), 10);
+        }
+      }
     }
+
+    // Enable custom pagination
+    if (c.attr('data-dots-custom')) {
+      c.on("initialized.owl.carousel", function (event) {
+        var carousel = $(event.currentTarget),
+          customPag = $(carousel.attr("data-dots-custom")),
+          active = 0;
+
+        if (carousel.attr('data-active')) {
+          active = parseInt(carousel.attr('data-active'), 10);
+        }
+
+        carousel.trigger('to.owl.carousel', [active, 300, true]);
+        customPag.find("[data-owl-item='" + active + "']").addClass("active");
+
+        customPag.find("[data-owl-item]").on('click', function (e) {
+          e.preventDefault();
+          carousel.trigger('to.owl.carousel', [parseInt(this.getAttribute("data-owl-item"), 10), 300, true]);
+        });
+
+        carousel.on("translate.owl.carousel", function (event) {
+          customPag.find(".active").removeClass("active");
+          customPag.find("[data-owl-item='" + event.item.index + "']").addClass("active")
+        });
+      });
+    }
+
+    // c.on("initialized.owl.carousel", function () {
+    // 	initLightGalleryItem(c.find('[data-lightgallery="item"]'), 'lightGallery-in-carousel');
+    // });
+
+    c.owlCarousel({
+      autoplay: isNoviBuilder ? false : c.attr("data-autoplay") === "true",
+      loop: isNoviBuilder ? false : c.attr("data-loop") !== "false",
+      items: 1,
+      center: c.attr("data-center") === "true",
+      dotsContainer: c.attr("data-pagination-class") || false,
+      navContainer: c.attr("data-navigation-class") || false,
+      mouseDrag: isNoviBuilder ? false : c.attr("data-mouse-drag") !== "false",
+      nav: c.attr("data-nav") === "true",
+      dots: c.attr("data-dots") === "true",
+      dotsEach: c.attr("data-dots-each") ? parseInt(c.attr("data-dots-each"), 10) : false,
+      animateIn: c.attr('data-animation-in') ? c.attr('data-animation-in') : false,
+      animateOut: c.attr('data-animation-out') ? c.attr('data-animation-out') : false,
+      responsive: responsive,
+      navText: c.attr("data-nav-text") ? $.parseJSON( c.attr("data-nav-text") ) : [],
+      navClass: c.attr("data-nav-class") ? $.parseJSON( c.attr("data-nav-class") ) : ['owl-prev', 'owl-next']
+    });
+  }
+
+  // Copyright Year (Evaluates correct copyright year)
+  $(".copyright-year").text(initialDate.getFullYear());
+
+  var uAgent = navigator.userAgent || '';
+  var safari = (!(/chrome/i.test(uAgent)) && /webkit|safari|khtml/i.test(uAgent));
+
+  if(safari){
+    $html.addClass("safari");
+  }
+
+  /**
+   * IE Polyfills
+   * @description  Adds some loosing functionality to IE browsers
+   */
+  if (isIE) {
+    if (isIE < 10) {
+      $html.addClass("lt-ie-10");
+    }
+
+    if (isIE < 11) {
+      if (plugins.pointerEvents) {
+        $.getScript(plugins.pointerEvents)
+          .done(function () {
+            $html.addClass("ie-10");
+            PointerEventsPolyfill.initialize({});
+          });
+      }
+    }
+
+    if (isIE === 11) {
+      $("html").addClass("ie-11");
+    }
+
+    if (isIE === 12) {
+      $("html").addClass("ie-edge");
+    }
+  }
+
+  /**
+   * RD Navbar
+   * @description Enables RD Navbar plugin
+   */
+  $(".rd-navbar").RDNavbar({
+    stickUpClone: ($(".rd-navbar").attr("data-stick-up-clone")) ? $(".rd-navbar").attr("data-stick-up-clone") === 'true' : false
   });
-  //
-  $('#subscribe .frm i').click(function(){
-    $(this).addClass('disabled');
-    inajax('/inc/actions.php?action=subscribe','email='+$(this).prev().val());
-  });
-  //
-  Blueimp();
+  if ($(".rd-navbar").attr("data-body-class")) {
+    document.body.className += ' ' + $(".rd-navbar").attr("data-body-class");
+  }
+
+  // Owl carousel
+  for (var i = 0; i < $(".owl-carousel").length; i++) {
+    var c = $($(".owl-carousel")[i]);
+    $(".owl-carousel")[i].owl = c;
+
+    initOwlCarousel(c);
+  }
+
+  // UI To Top
+  /*if (isDesktop && !isNoviBuilder) {
+    $().UItoTop({
+      easingType: 'easeOutQuad',
+      containerClass: 'ui-to-top fa fa-angle-up'
+    });
+  }*/
+
 });
-
-function Ch2btn() {
-  $('.ch2btn button').click(function () {
-    if($(this).hasClass('active')){
-      return true;
-    }
-    $(this).siblings().removeClass('active');
-    $(this).addClass('active');
-    var $cur = $('#' + $(this).attr('for'));
-    var $sib = $('#' + $(this).siblings(':first').attr('for'));
-    $sib.hide();
-    $cur.show();
-  });
-}
-
-function iReviews() {
-  var $ireviews = $('#ireviews');
-  //
-  $ireviews.find('.author img').click(function () {
-    var $item = $(this).parent('.item:first');
-    if($item.hasClass('active')){
-      return false;
-    }
-    var ind = $item.index();
-    var $par = $item.parents('#ireviews-story').length ? $item.parents('#ireviews-story') : $item.parents('#ireviews-video');
-    var $cont = $item.parents('#ireviews-story').length ? $par.find('.txt') : $par.find('.video');
-    $item.siblings().removeClass('active');
-    $item.addClass('active');
-    $cont.find('.item').hide();
-    $cont.find('.item').eq(ind).show();
-  });
-}
-
-function iGallery(){
-  $('#igallery .item a').click(function () {
-    var $par = $(this).parents('#igallery-photo').length ? $(this).parents('#igallery-photo') : $(this).parents('#igallery-video');
-    var ind = parseInt($(this).attr('ind'));
-    ind = isNaN(ind) ? 0 : ind;
-    var $im = $par.find('.item a[ind=' + ind + ']');
-    var link = $im.attr('href'),
-      options = {index: link, index: ind},
-      links = $par.find('.item a');
-    blueimp.Gallery(links, options);
-    return false;
-  });
-}
-
-function SeanseCalendarChDay() {
-  var $block = $('#bron .bron-calendar');
-  if(!$block.length){
-    return false;
-  }
-  //
-  inajax('/inc/actions.php', 'show=avail_bron_days');
-  SeanseCalendar();
-  //
-  $block.on('click', 'a', function () {
-    var day = $(this).attr('day');
-    if($(this).hasClass('cur') || $(this).hasClass('disabled')){
-      return false;
-    }
-    inajax('/inc/actions.php', 'show=avail_bron_days&day=' + day);
-    SeanseCalendar(day);
-    return false;
-  });
-}
-
-function SeanseCalendar(day) {
-  var $block = $('#bron .bron-days');
-  if(!$block.length){
-    return false;
-  }
-  inajax('/inc/actions.php', 'show=schedule_on_day&day=' + day);
-  $('#bron .btn b').html('');
-}
-
-function SelectSeanse() {
-  var $bonus = $('#bron .bron-bonus');
-  //
-  $('#seanse-list').on('click', '.bron-day', function () {
-    var $ss = $(this);
-    var $ch = $ss.find(':checkbox');
-    if($ss.hasClass('busy')){
-      $ch.prop('checked',false);
-      return false;
-    }
-    if($ss.hasClass('active')){
-      return false;
-    }
-    $('#seanse-list .bron-day').removeClass('active');
-    $('#seanse-list .bron-day :checkbox').prop('checked',false);
-    $ss.addClass('active');
-    $ch.prop('checked',true);
-    $('#bron button b').html(' ' + $ch.attr('time'));
-    var discount = parseInt($ch.attr('discount'));
-    if(discount > 0){
-      $bonus.find('b').html(discount);
-      $bonus.addClass('active');
-    } else {
-      $bonus.removeClass('active');
-      $bonus.find('b').html('');
-    }
-  });
-}
-
-function chQuant($area){
-  //
-  if($area == undefined){
-    $area = $(document);
-  }
-  //
-  $area.find('.btn-number').click(function(e){
-    e.preventDefault();
-    var $block    = $(this).parents('.input-group:first');
-    var $input    = $block.find('input[type="text"]');
-    var type      = $(this).attr('data-type');
-    var currentVal = parseInt($input.val());
-    if (!isNaN(currentVal)) {
-      if(type == 'minus') {
-        if(currentVal > $input.attr('min')) {
-          $input.val(currentVal - 1).change();
-        }
-        if(parseInt($input.val()) == $input.attr('min')) {
-          $(this).attr('disabled', true);
-        }
-      } else if(type == 'plus') {
-        if(currentVal < $input.attr('max')) {
-          $input.val(currentVal + 1).change();
-        }
-        if(parseInt($input.val()) == $input.attr('max')) {
-          $(this).attr('disabled', true);
-        }
-      }
-    } else {
-      $input.val(0);
-    }
-  });
-  $area.find('.input-number').focusin(function(){
-    $(this).data('oldValue', $(this).val());
-  });
-  $area.find('.input-number').change(function() {
-    var $block = $(this).parents('.input-group:first');
-    minValue =  parseInt($(this).attr('min'));
-    maxValue =  parseInt($(this).attr('max'));
-    valueCurrent = parseInt($(this).val());
-    if(valueCurrent >= minValue) {
-      $block.find('.btn-number[data-type="minus"]').removeAttr('disabled')
-    } else {
-      alert('Sorry, the minimum value was reached');
-      $(this).val($(this).data('oldValue'));
-    }
-    if(valueCurrent <= maxValue) {
-      $block.find('.btn-number[data-type="plus"]').removeAttr('disabled')
-    } else {
-      alert('Sorry, the maximum value was reached');
-      $(this).val($(this).data('oldValue'));
-    }
-  });
-  $area.find('.input-number').keydown(function (e) {
-    // Allow: backspace, delete, tab, escape, enter and .
-    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-      // Allow: Ctrl+A
-      (e.keyCode == 65 && e.ctrlKey === true) ||
-      // Allow: home, end, left, right
-      (e.keyCode >= 35 && e.keyCode <= 39)) {
-      // let it happen, don't do anything
-      return;
-    }
-    // Ensure that it is a number and stop the keypress
-    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-      e.preventDefault();
-    }
-  });
-}
-
-function iFAQ() {
-  $('#ifaq .ifaq-q').click(function () {
-    $('#ifaq .ifaq-q.active').removeClass('active');
-    $('#ifaq .ifaq-a.active').removeClass('active');
-    $(this).addClass('active');
-    $(this).next(':first').addClass('active');
-    return false;
-  });
-}
-
-function Blueimp() {
-  $('a.blueimp').click(function () {
-    var $a = $(this);
-    blueimp.Gallery($a, {});
-    return false;
-  });
-}
-
-function jPop(url) {
-  jQuery.arcticmodal({
-    type: 'ajax',
-    url: url,
-    ajax: {
-      type:'GET',
-      cache: false,
-      success:function(data, el, responce){
-        data.body.html(jQuery('<div class="box-modal"><div class="box-modal_close arcticmodal-close glyphicon glyphicon-remove"></div>' + responce + '</div>'));
-      }
-    }
-  });
-}
-
-function toCart(mod,quant,dopURL)
-{
-  inajax('/cart.php','action=add&mod='+mod+'&quant='+(quant*1<1?1:quant)+dopURL);
-}
-
-function update_captcha()
-{
-	var tmp = new Date();
-	$('#captcha').attr('src','/captcha/'+tmp+'/');
-}
-
-function isiPhone(){
-  return (
-    (navigator.platform.indexOf("iPhone") != -1) ||
-    (navigator.platform.indexOf("iPod") != -1)
-  );
-}
