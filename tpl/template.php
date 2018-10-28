@@ -74,7 +74,7 @@
             <!-- RD Navbar Nav-->
             <!-- RD Navbar Nav-->
             <ul class="rd-navbar-nav">
-              <li class="active"><a href="#">Главная</a>
+              <li class="active"><a href="/">Главная</a>
                 <ul class="rd-navbar-dropdown">
                   <li><a href="#">Ссылка 1</a>
                     <ul class="rd-navbar-dropdown">
@@ -107,7 +107,7 @@
                 </ul>
               </li><li>
                 <a href="#">Кейсы</a>
-              </li><li><a href="#">Контакты</a>
+              </li><li><a href="/contacts.htm">Контакты</a>
               </li><li><a href="#">Полезно знать</a>
               </li><li class="rd-navbar-cta">
                 <a class="btn btn-primary" href="#">бесплатная<br>консультация</a>
@@ -209,7 +209,7 @@
               <li><a href="/about.htm">О компании</a></li>
               <li><a href="#">Услуги</a></li>
               <li><a href="#">Кейсы</a></li>
-              <li><a href="#">Контакты</a></li>
+              <li><a href="/contacts.htm">Контакты</a></li>
               <li><a href="#">Полезно знать</a></li>
             </ul>
           </div>

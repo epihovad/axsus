@@ -32,6 +32,10 @@ ob_start();
       case 2:
         include 'page-about.php';
         break;
+			// страница «Контакты»
+			case 3:
+				include 'page-contacts.php';
+				break;
       //
       default:
         ?>
