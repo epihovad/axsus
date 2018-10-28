@@ -124,7 +124,8 @@
         zoom: 17,
         controls: ['zoomControl', 'typeSelector',  'fullscreenControl']
       }, {
-        searchControlProvider: 'yandex#search'
+        searchControlProvider: 'yandex#search',
+        minZoom: 8
       }),
 
       myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
@@ -140,7 +141,7 @@
         iconImageSize: [113, 55],
         // Смещение левого верхнего угла иконки относительно
         // её "ножки" (точки привязки).
-        iconImageOffset: [-65, -120]
+        iconImageOffset: [0, 0]
       });
 
     myMap.geoObjects.add(myPlacemark);
