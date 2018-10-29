@@ -2,7 +2,7 @@
   #contacts { position:relative; width:100%; z-index:10; background-image:none; background-color:rgba(0,0,0,1);}
   #contacts.over { position:absolute; background:url(/img/contacts-bg.png); }
   #gmap { width: 100%; min-height: 100vh; }
-  #gmap.smoke::before {
+  /*#gmap.smoke::before {
     content:'';
     width:100%;
     height:100vh;
@@ -10,7 +10,7 @@
     position:absolute;
     left:0;
     z-index:5;
-  }
+  }*/
   #contacts h3, #contacts p { text-align:left; color:#fff;}
   #contacts h3 { padding-bottom:20px;}
   #contacts .sh-contacts { padding:15px 0;}
