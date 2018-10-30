@@ -100,9 +100,33 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	outline-offset: -1px;
 }*/
 
-.rd-navbar-cta a { line-height:16px; padding: 6px 26px;}
+.rd-navbar-brand ul { position:absolute; margin-left:160px; }
+.rd-navbar-brand ul li { text-align:center;}
+.rd-navbar-brand ul a { color:#ccc; transition: .3s all ease;}
+.rd-navbar-brand ul a:hover { color:#29b6f6;}
+
+.rd-navbar-cta a { line-height:16px; padding: 6px 26px; font-size:20px; color:#fff;}
+.rd-navbar-cta a span { margin-right:15px;}
 .rd-navbar-top-panel p a { font-family:"Trebuchet MS", Helvetica, sans-serif; font-size:26px;}
 .rd-navbar-top-panel p a .icon { vertical-align:inherit; font-size:24px; }
+@media (max-width: 767px) {
+	.rd-navbar-top-panel p a { font-size:18px; }
+	.rd-navbar-top-panel p a .icon { font-size:18px; }
+}
+@media (min-width: 1200px) {
+	.rd-navbar-list {background: url(/img/navbar-list-bg.png) no-repeat 0 -20px;}
+}
+@media (max-width: 1200px) {
+	.rd-navbar-cta { margin-left:40px !important;}
+	.rd-navbar-cta a { padding:6px 0; font-size:16px; }
+	.rd-navbar-cta a span { font-size:16px; margin-right:7px;}
+}
+@media (max-width: 767px) {
+	.rd-navbar-cta { display:none;}
+}
+@media (min-width: 1200px) {
+	.rd-navbar-list {background: url(/img/navbar-list-bg.png) no-repeat 0 -20px;}
+}
 
 .header-text h1 { font-size:24px; line-height:28px; padding-bottom:45px;}
 .header-text .list li { padding: 0 0 0 20px; margin: 0; letter-spacing: -0.02em;}
@@ -111,16 +135,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-size: 14px;
 	line-height: 26px;
 }
-.header-text .list li a:hover { color: #29b6f6; text-decoration: none;}
-.header-text .list li a::before {
-	content: '';
-	width: 12px;
-	height: 10px;
-	position: absolute;
-	background: url(/img/header-list-check.png) no-repeat;
-	margin-left: -20px;
-	margin-top: 9px;
+.header-text .list li:nth-child(even) a {
+	color: #d2d2d2;
 }
+.header-text .list li a:hover { color: #29b6f6; text-decoration: none;}
 .header-text img { margin-top:95px;}
 
 #index-promo .row { margin:0;}

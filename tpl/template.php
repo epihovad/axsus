@@ -54,10 +54,6 @@
         <!-- RD Navbar Toggle-->
         <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-top-panel"><span></span></button>
         <div class="rd-navbar-collapse rd-navbar-top-panel">
-          <ul class="list-inline">
-            <li><a class="fab fa-instagram icon icon-dark icon-xs" href="#"></a></li>
-            <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="#"></a></li>
-          </ul>
           <p class="offset-none">
             <a href="callto:84992133401"><span class="icon text-white icon-xs fas fa-phone"></span>8.499.213.34.01</a>
           </p>
@@ -68,7 +64,13 @@
             <!-- RD Navbar Toggle-->
             <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
             <!-- RD Navbar Brand-->
-            <div class="rd-navbar-brand"><a href="/"><img class="img-responsive" alt="" width="284" src="/img/logo.png"></a></div>
+            <div class="rd-navbar-brand">
+              <ul>
+                <li><a class="fab fa-instagram icon icon-dark icon-xs" href="#"></a></li>
+                <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="#"></a></li>
+              </ul>
+              <a href="/"><img class="img-responsive" alt="" width="284" src="/img/logo.png"></a>
+            </div>
           </div>
           <div class="rd-navbar-nav-wrap">
             <!-- RD Navbar Nav-->
@@ -110,7 +112,7 @@
               </li><li><a href="/contacts.htm">Контакты</a>
               </li><li><a href="#">Полезно знать</a>
               </li><li class="rd-navbar-cta">
-                <a class="btn btn-primary" href="#">бесплатная<br>консультация</a>
+                <a href="callto:84992133401"><span class="icon text-white icon-xs fas fa-phone"></span>8.499.213.34.01</a>
               </li>
             </ul>
           </div>
@@ -123,7 +125,7 @@
       <div class="row justify-content-md-center justify-content-xl-start">
         <div class="col-lg-8 col-xl-3 text-xl-left">
           <h1>Поставка компьютерного оборудования корпоративным пользователям</h1>
-          <ul class="list">
+          <ul class="list rd-navbar-list">
             <li><a href="#">Серверное оборудование</a></li>
             <li><a href="#">Компьютерное оборудование</a></li>
             <li><a href="#">Системы хранения данных</a></li>

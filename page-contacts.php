@@ -1,7 +1,7 @@
 <style>
   #contacts { position:relative; width:100%; z-index:10; background-image:none; background-color:rgba(0,0,0,1);}
   #contacts.over { position:absolute; background:url(/img/contacts-bg.png); }
-  #gmap { width: 100%; min-height: 100vh; }
+  #gmap { width: 100%; min-height:1200px; }
   /*#gmap.smoke::before {
     content:'';
     width:100%;
@@ -34,12 +34,19 @@
     border: 1px solid #ced4da;
     border-radius: 25px;
   }
+  #contacts textarea.form-control { height:70px;}
   #contacts .form-control::placeholder { color:#a0a0a0;}
+  @media (max-width: 1200px) {
+    #contacts h3 { font-size:18px;}
+    #contacts p { font-size:14px;}
+    #contacts .req { font-size:14px;}
+    #contacts .req-item { font-size:14px;}
+  }
 </style>
 
 <section id="contacts" class="over text-white">
   <div class="container">
-    <div class="row section-34">
+    <div class="row section-top-20">
       <div class="link-us col-xs-12 col-sm-12 col-md-4">
         <h3>Как с нами связаться</h3>
         <p class="lead">
@@ -138,7 +145,7 @@
         // Своё изображение иконки метки.
         iconImageHref: 'img/logo-map.png',
         // Размеры метки.
-        iconImageSize: [113, 55],
+        iconImageSize: [130, 60],
         // Смещение левого верхнего угла иконки относительно
         // её "ножки" (точки привязки).
         iconImageOffset: [0, 0]

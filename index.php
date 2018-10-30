@@ -134,7 +134,7 @@ ob_start();
 <section id="index-brands" class="section-top-50">
   <div class="container">
     <div class="d-flex">
-      <? for($n=1; $n < 40; $n++){ ?>
+      <? for($n=1; $n < 18; $n++){ ?>
       <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand<?=rand(1,4)?>.png"></a></div>
 			<?}?>
     </div>
