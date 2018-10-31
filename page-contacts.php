@@ -135,9 +135,9 @@
         minZoom: 8
       }),
 
-      myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+      myPlacemark = new ymaps.Placemark([55.859674, 37.585507], {
         //hintContent: 'Собственный значок метки',
-        balloonContent: '«АКСИС Проекты»'
+        //balloonContent: '«АКСИС Проекты»'
       }, {
         // Опции.
         // Необходимо указать данный тип макета.
@@ -148,10 +148,12 @@
         iconImageSize: [130, 60],
         // Смещение левого верхнего угла иконки относительно
         // её "ножки" (точки привязки).
-        iconImageOffset: [0, 0]
+        iconImageOffset: [-50, 10]
       });
 
     myMap.geoObjects.add(myPlacemark);
     myMap.behaviors.disable(['scrollZoom']);
+    var position = myMap.getGlobalPixelCenter();
+    myMap.setGlobalPixelCenter([ position[0] + 50, position[1] ]);
   });
 </script>
