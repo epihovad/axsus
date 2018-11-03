@@ -95,7 +95,7 @@
                 </ul>
               </li><li>
                 <a href="/about.htm">О компании</a>
-              </li><li><a href="#">Услуги</a>
+              </li><li><a href="/service.htm">Услуги</a>
                 <ul class="rd-navbar-dropdown">
                   <li><a href="#">Серверное оборудование</a></li>
                   <li><a href="#">Компьютерное оборудование</a></li>
@@ -209,7 +209,7 @@
             <ul class="list">
               <li><a href="/">Главная</a></li>
               <li><a href="/about.htm">О компании</a></li>
-              <li><a href="#">Услуги</a></li>
+              <li><a href="/service.htm">Услуги</a></li>
               <li><a href="#">Кейсы</a></li>
               <li><a href="/contacts.htm">Контакты</a></li>
               <li><a href="#">Полезно знать</a></li>
