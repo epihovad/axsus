@@ -67,6 +67,7 @@
   @media (max-width: 767px) {
     #page-service .service-slogan1 {background: linear-gradient(to top, #37474f 50%, #45565e 50%);}
     #page-service .service-slogan1 .d-flex .d-flex { flex: 0 0 100%; }
+    #page-service .service-slogan1 .d-flex .d-flex:nth-child(1) { padding-bottom:68px; }
 
     #page-service .service-slogan1 h3 { font-size:18px; line-height:26px;}
     #page-service .service-slogan2 h3 { font-size:18px; line-height:26px;}
