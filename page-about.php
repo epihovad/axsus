@@ -14,7 +14,7 @@
 
 <section id="about-us" data-parallax="scroll" data-image-src="/img/about-bg.jpg">
   <div class="container">
-    <h1>Вас приветствует компания<br>«АКСИС Проекты»!</h1>
+    <h1>Вас приветствует компания<br>«АКСИС ПРОЕКТЫ»!</h1>
     <div class="row">
       <div class="about-left col-xs-7 col-sm-12 col-md-7">
         <div class="about-left-bg">
@@ -62,7 +62,7 @@
 
 <section id="about-num-list" class="section-top-20 section-sm-34 section-md-50 section-lg-top-72">
   <div class="container">
-    <h2>Компания «АКСИС Проекты» – это:</h2>
+    <h2>Компания «АКСИС ПРОЕКТЫ» – это:</h2>
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6">
         <ol class="num-list-about num-list-about-left offset-top-32 offset-sm-top-32 offset-lg-top-50 text-left">
@@ -160,7 +160,7 @@
       <div class="d-flex justify-content-center"><a href="#"><img src="/img/advance-mini.jpg"></a></div>
     </div>
     <p class="lead section-top-34">
-      Высокая квалификация сотрудников компании «АКСИС Проекты» подтверждена дипломами и сертификатами по результатам
+      Высокая квалификация сотрудников компании «АКСИС ПРОЕКТЫ» подтверждена дипломами и сертификатами по результатам
       экзаменов и тестов, пройденных в учебных центрах компаний-производителей. Успехи работы выражаются и в наградах за высокие
       объемы продаж компьютерной техники и оборудования от наших поставщиков.
     </p>

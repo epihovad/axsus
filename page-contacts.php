@@ -63,7 +63,7 @@
       </div>
       <div class="req col-xs-12 col-sm-12 col-md-4 text-left section-top-34 section-md-top-0 section-lg-top-0">
         <h3>Наши реквизиты</h3>
-        <p class="lead">ООО «АКСИС Проекты»</p>
+        <p class="lead">ООО «АКСИС ПРОЕКТЫ»</p>
         <div class="req-item"><b>ИНН</b><span>7715992412</span></div>
         <div class="req-item"><b>КПП</b><span>771501001</span></div>
         <div class="req-item"><b>Тел.</b><span>8 (499) 213-34-01</span></div>
@@ -137,7 +137,7 @@
 
       myPlacemark = new ymaps.Placemark([55.859674, 37.585507], {
         //hintContent: 'Собственный значок метки',
-        //balloonContent: '«АКСИС Проекты»'
+        //balloonContent: '«АКСИС ПРОЕКТЫ»'
       }, {
         // Опции.
         // Необходимо указать данный тип макета.
