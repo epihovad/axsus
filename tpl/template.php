@@ -20,6 +20,7 @@
   <link href="/css/style_new.css?v=20181101" rel="stylesheet">
 
   <script src="/js/core.min.js"></script>
+  <script src="/js/ui/jquery-ui.min.js" type="text/javascript"></script>
   <script src="/js/spec.js"></script>
 
   <script src="/js/arcticmodal/jquery.arcticmodal-0.3.min.js"></script>

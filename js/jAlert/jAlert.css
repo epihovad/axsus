@@ -15,8 +15,8 @@
 #jAlert .info_place
 {
 	padding:28px 30px 0 30px;
-	font: normal 14px 'Roboto', sans-serif;;
-	color:#000;
+	font: normal 14px Verdana, Geneva, sans-serif;
+	color:#2c2c2c;
 	text-align:center;
 	line-height:1.5em;
 }
@@ -29,18 +29,19 @@
 #jAlert a.ok, #jAlert a.yes, #jAlert a.no
 {
 	overflow:hidden;
-	font:400 14px/1.5 'Roboto', sans-serif;
+	transition: .3s ease-out;
+	font:400 14px/1.5 "Trebuchet MS", Helvetica, sans-serif;
 	text-transform:uppercase;
-	color:#000;
+	color:#fff;
 	text-decoration:none;
 	padding:4px 18px 5px;
-	background-color:#fff15b;
+	background-color:#29b6f6;
 	-moz-border-radius:50px; /* Firefox */
 	-webkit-border-radius:50px; /* Safari and Chrome */
 	-khtml-border-radius:50px; /* Linux browsers */
 	border-radius:50px; /* Opera 10.50, IE and CSS3 */
 }
-#jAlert a.ok:hover, #jAlert a.yes:hover, #jAlert a.no:hover { background-color:#fffe4e; }
+#jAlert a.ok:hover, #jAlert a.yes:hover, #jAlert a.no:hover { background-color:#088eca; }
 #jAlert a.yes { margin-right:20px; }
 
 #jAlert_shadow

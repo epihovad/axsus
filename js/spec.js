@@ -2,6 +2,7 @@
  * Global variables
  */
 "use strict";
+var zmax = 1001; // стартовая переменная величина
 var isNoviBuilder = window.xMode;
 var userAgent = navigator.userAgent.toLowerCase(),
     initialDate = new Date(),
@@ -30,6 +31,12 @@ $(document).ready(function () {
   if($('header').height() > 920){
     $('#header-map').show();
   }
+
+  //
+  $('a.fb-btn').click(function(){
+    jPop('/inc/actions.php?show=fb-form');
+    return false;
+  });
 
   /**
    * @desc Initialize owl carousel plugin
@@ -170,3 +177,22 @@ $(document).ready(function () {
   }*/
 
 });
+
+jQuery.fn.preloadImg = function(){
+  for(var i=0; i<arguments.length; i++)
+    jQuery("<img>").attr("src", arguments[i]);
+};
+
+function jPop(url) {
+  jQuery.arcticmodal({
+    type: 'ajax',
+    url: url,
+    ajax: {
+      type:'GET',
+      cache: false,
+      success:function(data, el, responce){
+        data.body.html(jQuery('<div class="box-modal"><i class="box-modal_close arcticmodal-close fas fa-times"></i>' + responce + '</div>'));
+      }
+    }
+  });
+}

@@ -36,6 +36,11 @@
   }
   #contacts textarea.form-control { height:70px;}
   #contacts .form-control::placeholder { color:#a0a0a0;}
+  #contacts .checkbox { padding:0 10px 10px 10px;}
+  #contacts .checkbox a { color:#fff;}
+  #contacts .checkbox a:hover { color:#29b6f6;}
+  #contacts .checkbox label { color: #fff; font-size: 13px; line-height: 14px; }
+  #contacts .checkbox input { vertical-align: top; margin-right: 2px;}
   @media (max-width: 1200px) {
     #contacts h3 { font-size:18px;}
     #contacts p { font-size:14px;}
@@ -43,6 +48,12 @@
     #contacts .req-item { font-size:14px;}
   }
 </style>
+
+<script>
+  $(function () {
+    Inputmask({mask: '+7 (999) 999-99-99',showMaskOnHover: false}).mask($('#fb-form-contacts input[name="phone"]'));
+  })
+</script>
 
 <section id="contacts" class="over text-white">
   <div class="container">
@@ -72,23 +83,28 @@
         <div class="section-top-20">Часы работы</div>
         <div>Понедельник - пятница: 10:00 - 19:00</div>
       </div>
-      <div class="req col-xs-12 col-sm-12 col-md-4 text-left section-top-34 section-md-top-0 section-lg-top-0">
+      <div class="col-xs-12 col-sm-12 col-md-4 text-left section-top-34 section-md-top-0 section-lg-top-0">
         <h3>Напишите нам</h3>
-        <form>
+        <form id="fb-form-contacts" class="fb-form" action="/inc/actions.php?action=fb-save" target="ajax" method="post">
           <div class="form-group">
             <input class="form-control" type="text" name="name" placeholder="Ваше имя">
           </div>
           <div class="form-group">
-            <input class="form-control" type="text" name="company" placeholder="Название организации">
+            <input class="form-control" type="text" name="firma" placeholder="Название организации">
           </div>
           <div class="form-group">
-            <input class="form-control" type="text" name="name" placeholder="Телефон">
+            <input class="form-control" type="text" name="phone" placeholder="Телефон">
           </div>
           <div class="form-group">
             <input class="form-control" type="text" name="email" placeholder="Email">
           </div>
           <div class="form-group">
-            <textarea class="form-control" type="text" name="note" placeholder="Ваше сообщение"></textarea>
+            <textarea class="form-control" type="text" name="text" placeholder="Ваше сообщение (необязательно для заполнения)"></textarea>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="pdata" value="1" checked> Я согласен(на) на обработку <a href="#" target="_blank">моих персональных данных</a>
+            </label>
           </div>
           <div class="text-right"><button class="btn btn-primary" type="submit">Отправить</button></div>
         </form>

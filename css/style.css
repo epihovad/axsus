@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .page-footer ul.list { font-size:14px;}
 
-.cons-btn a { text-transform:uppercase;}
+a.btn, button { text-transform:uppercase; cursor:pointer;}
 
 #nav-up, #nav-down {
 	font-size: 24px;

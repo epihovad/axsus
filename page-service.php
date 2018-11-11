@@ -283,7 +283,7 @@
           </p>
         </div>
         <div class="d-flex">
-          <div class="cons-btn"><a class="btn btn-primary" href="#">связаться с менеджером</a></div>
+          <a class="btn btn-primary fb-btn" href="#">связаться с менеджером</a>
         </div>
       </div>
     </div>
@@ -333,7 +333,7 @@
         </div>
         <div class="d-flex">
           <p class="lead section-bottom-15 w-100">Или просто нажимайте на эту кнопку:</p>
-          <div class="cons-btn"><a class="btn btn-primary" href="#">связаться с менеджером</a></div>
+          <a class="btn btn-primary fb-btn" href="#">связаться с менеджером</a>
         </div>
       </div>
     </div>

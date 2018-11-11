@@ -132,7 +132,7 @@
 
     <p class="lead section-top-50 section-sm-top-34 section-md-top-34">Обращаясь в нашу компанию, вы можете быть уверены в том,<br>что поставленные вами задачи будут выполнены четко, качественно и в срок!</p>
 
-    <div class="cons-btn section-top-34 section-bottom-50 section-sm-bottom-34 section-md-bottom-34"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
+    <div class="section-top-34 section-bottom-50 section-sm-bottom-34 section-md-bottom-34"><a class="btn btn-primary fb-btn" href="#">получить бесплатную консультацию</a></div>
   </div>
 </section>
 
@@ -164,5 +164,5 @@
       экзаменов и тестов, пройденных в учебных центрах компаний-производителей. Успехи работы выражаются и в наградах за высокие
       объемы продаж компьютерной техники и оборудования от наших поставщиков.
     </p>
-    <div class="cons-btn section-top-34 section-bottom-72"><a class="btn btn-primary" href="#">получить бесплатную консультацию</a></div>
+    <div class="section-top-34 section-bottom-72"><a class="btn btn-primary fb-btn" href="#">получить бесплатную консультацию</a></div>
 </section>
