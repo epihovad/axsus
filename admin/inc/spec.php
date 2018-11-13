@@ -334,7 +334,7 @@ function show_listview_btns($btns = '', $individual_btns = array()){
 
 	$defaults = array(
 		'Сохранить' => array('js' => "SaveAll('?action=saveall')", 'class' => 'warning', 'icon' => 'far fa-save'),
-		'Добавить' => array('link' => '?show=edit', 'class' => 'success', 'icon' => 'fa fa-plus'),
+		'Добавить' => array('link' => '?red=0', 'class' => 'success', 'icon' => 'fa fa-plus'),
 		'Удалить' => array('js' => "SaveAll('?action=multidel',1,1)", 'class' => 'danger', 'icon' => 'far fa-trash-alt'),
 	);
 

@@ -70,52 +70,12 @@
                 <li><a class="fab fa-instagram icon icon-dark icon-xs" href="#"></a></li>
                 <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="#"></a></li>
               </ul>
-              <a href="/"><img class="img-responsive" alt="" width="284" src="/img/logo.png"></a>
+              <a href="/" style="display:inline-block"><img class="img-responsive" alt="" src="/img/logo.png"></a>
             </div>
           </div>
           <div class="rd-navbar-nav-wrap">
             <!-- RD Navbar Nav-->
-            <!-- RD Navbar Nav-->
-            <ul class="rd-navbar-nav">
-              <li class="active"><a href="/">Главная</a>
-                <ul class="rd-navbar-dropdown">
-                  <li><a href="#">Ссылка 1</a>
-                    <ul class="rd-navbar-dropdown">
-                      <li><a href="#">Ссылка 11</a>
-                        <ul class="rd-navbar-dropdown">
-                          <li><a href="#">Ссылка 111</a></li>
-                          <li><a href="#">Ссылка 112</a></li>
-                          <li><a href="#">Ссылка 113</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#">Ссылка 12</a></li>
-                      <li><a href="#">Ссылка 13</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Ссылка 2</a></li>
-                </ul>
-              </li><li>
-                <a href="/about.htm">О компании</a>
-              </li><li><a href="/service.htm">Услуги</a>
-                <ul class="rd-navbar-dropdown">
-                  <li><a href="#">Серверное оборудование</a></li>
-                  <li><a href="#">Компьютерное оборудование</a></li>
-                  <li><a href="#">Системы хранения данных</a></li>
-                  <li><a href="#">Сетевое оборудование</a></li>
-                  <li><a href="#">Системы хранения данных</a></li>
-                  <li><a href="#">Программное обеспечение</a></li>
-                  <li><a href="#">Системы бесперебойного питания</a></li>
-                  <li><a href="#">Оргтехника</a></li>
-                  <li><a href="#">Расходные материалы</a></li>
-                </ul>
-              </li><li>
-                <a href="#">Кейсы</a>
-              </li><li><a href="/contacts.htm">Контакты</a>
-              </li><li><a href="#">Полезно знать</a>
-              </li><li class="rd-navbar-cta">
-                <a href="callto:84992133401"><span class="icon text-white icon-xs fas fa-phone"></span>8.499.213.34.01</a>
-              </li>
-            </ul>
+            <?=main()?>
           </div>
         </div>
       </nav>
@@ -127,15 +87,14 @@
         <div class="col-lg-8 col-xl-3 text-xl-left">
           <h1>Поставка компьютерного оборудования корпоративным пользователям</h1>
           <ul class="list rd-navbar-list">
-            <li><a href="#">Серверное оборудование</a></li>
-            <li><a href="#">Компьютерное оборудование</a></li>
-            <li><a href="#">Системы хранения данных</a></li>
-            <li><a href="#">Сетевое оборудование</a></li>
-            <li><a href="#">Системы хранения данных</a></li>
-            <li><a href="#">Программное обеспечение</a></li>
-            <li><a href="#">Системы бесперебойного питания</a></li>
-            <li><a href="#">Оргтехника</a></li>
-            <li><a href="#">Расходные материалы</a></li>
+            <?
+						$r = sql("SELECT * FROM {$prx}pages WHERE id_parent = 4 AND status=1 ORDER BY sort,id");
+						while ($arr = mysqli_fetch_assoc($r)){
+							//$link = $arr['type']=='link' ? $arr['link'] : ($arr['link']=='/' ? '/' : "/{$arr['link']}.htm");
+              $link = '/service.htm';
+              ?><li><a href="<?=$link?>"><?=$arr['name']?></a></li><?
+            }
+            ?>
           </ul>
           <img id="header-map" src="/img/header-map.png" style="display:none">
         </div>
@@ -208,26 +167,26 @@
           <div class="col-md-6 col-lg-3 offset-xl-1 order-lg-1">
             <h4>Информация</h4>
             <ul class="list">
-              <li><a href="/">Главная</a></li>
-              <li><a href="/about.htm">О компании</a></li>
-              <li><a href="/service.htm">Услуги</a></li>
-              <li><a href="#">Кейсы</a></li>
-              <li><a href="/contacts.htm">Контакты</a></li>
-              <li><a href="#">Полезно знать</a></li>
+							<?
+							$r = sql("SELECT * FROM {$prx}pages WHERE id_parent = 0 AND status=1 ORDER BY sort,id");
+							while ($arr = mysqli_fetch_assoc($r)){
+								$link = $arr['type']=='link' ? $arr['link'] : ($arr['link']=='/' ? '/' : "/{$arr['link']}.htm");
+								?><li><a href="<?=$link?>"><?=$arr['name']?></a></li><?
+							}
+							?>
             </ul>
           </div>
           <div class="col-md-6 col-lg-3 order-lg-1 offset-md-top-0">
             <h4>Услуги</h4>
             <ul class="list">
-              <li><a href="#">Серверное оборудование</a></li>
-              <li><a href="#">Компьютерное оборудование</a></li>
-              <li><a href="#">Системы хранения данных</a></li>
-              <li><a href="#">Сетевое оборудование</a></li>
-              <li><a href="#">Системы хранения данных</a></li>
-              <li><a href="#">Программное обеспечение</a></li>
-              <li><a href="#">Системы бесперебойного питания</a></li>
-              <li><a href="#">Оргтехника</a></li>
-              <li><a href="#">Расходные материалы</a></li>
+							<?
+							$r = sql("SELECT * FROM {$prx}pages WHERE id_parent = 4 AND status=1 ORDER BY sort,id");
+							while ($arr = mysqli_fetch_assoc($r)){
+								//$link = $arr['type']=='link' ? $arr['link'] : ($arr['link']=='/' ? '/' : "/{$arr['link']}.htm");
+								$link = '/service.htm';
+								?><li><a href="<?=$link?>"><?=$arr['name']?></a></li><?
+							}
+							?>
             </ul>
           </div>
           <div class="col-lg-5">

@@ -170,6 +170,7 @@ else
       <tr>
         <th nowrap style="text-align:center"><input type="checkbox" name="del" /></th>
         <th>№</th>
+        <th><?=SortColumn('Дата','date')?></th>
         <th width="15%"><?=SortColumn('Название','name')?></th>
         <th width="15%"><?=SortColumn('Организация','firma')?></th>
         <th width="15%"><?=SortColumn('Телефон','phone')?></th>
@@ -189,6 +190,7 @@ else
           <tr id="item-<?=$row['id']?>">
             <th><input type="checkbox" name="del[<?=$id?>]"></th>
             <th nowrap><?=$i++?></th>
+            <td nowrap><?=date('d.m.Y', strtotime($row['date']))?> <small><?=date('H:i', strtotime($row['date']))?></small></td>
             <td class="sp" nowrap><a href="?red=<?=$id?>"><?=$row['name']?></a></td>
             <td class="sp" nowrap><a href="?red=<?=$id?>"><?=$row['firma']?></a></td>
             <td class="sp" nowrap><a href="?red=<?=$id?>"><?=$row['phone']?></a></td>
