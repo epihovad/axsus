@@ -15,9 +15,9 @@
 
   <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="/css/bootstrap.css" rel="stylesheet">
-  <link href="/css/style.css?v=20181101" rel="stylesheet" type="text/css" />
-  <link href="/css/media.css?v=20181101" rel="stylesheet" type="text/css" />
-  <link href="/css/style_new.css?v=20181101" rel="stylesheet">
+  <link href="/css/style.css?v=20181115" rel="stylesheet" type="text/css" />
+  <link href="/css/media.css?v=20181115" rel="stylesheet" type="text/css" />
+  <link href="/css/style_new.css?v=20181115" rel="stylesheet">
 
   <script src="/js/core.min.js"></script>
   <script src="/js/ui/jquery-ui.min.js" type="text/javascript"></script>
@@ -106,20 +106,8 @@
 
   <!-- Page Content-->
   <main class="page-content">
-
-		<? if (!$index){ ?>
-    <section class="bg-mine">
-      <div class="container">
-        <ol class="breadcrumb">
-          <li><a href="/">Главная</a></li>
-          <li class="active">О компании</li>
-        </ol>
-      </div>
-    </section>
-		<?}?>
-
+		<?=navigate()?>
     <?=$content?>
-
   </main>
 
   <!-- Page Footer-->
@@ -147,7 +135,7 @@
             <h1><span class="icon icon-lg far fa-envelope"></span>Контакты</h1>
             <dl class="list-terms">
               <dt>Email</dt>
-              <dd><a href="mailto:info@axsus.ru">info@axsus.ru</a>, <a href="mailto:client@axsus.ru">client@axsus.ru</a></dd>
+              <dd><a href="mailto:info@axsus.ru">info@axsus.ru</a></dd>
             </dl>
             <dl class="list-terms">
               <dt>Телефон</dt>

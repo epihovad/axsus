@@ -7,7 +7,7 @@ if(!$page) { header("HTTP/1.0 404 Not Found"); $code = '404'; require('errors.ph
 
 $mainID = $page['id'];
 
-$navigate = $page['name'];
+$navigate = '<li class="active">' . $page['name'] . '</li>';
 
 $title = $page['name'];
 foreach(array('title','keywords','description') as $val)

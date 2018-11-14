@@ -8,8 +8,8 @@
   @media (max-width: 767px) {
     #about-us .about-right { margin-top:30px;}
   }
+  .owl-carousel .im { width:290px; height:200px; background-repeat: no-repeat; background-position: center center; }
   #our-sert { background-color:#f8f8f8;}
-  #our-sert img, #our-advance img { border:2px solid #e1e1e1; width:100%; max-width:335px; }
 </style>
 
 <section id="about-us" data-parallax="scroll" data-image-src="/img/about-bg.jpg">
@@ -143,10 +143,13 @@
       Мы являемся сертифицированными партнерами<br>
       ведущих мировых производителей
     </p>
-    <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="3" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30">
-      <div class="d-flex justify-content-center"><a href="#"><img src="/img/sert-mini.jpg"></a></div>
-      <div class="d-flex justify-content-center"><a href="#"><img src="/img/sert-mini.jpg"></a></div>
-      <div class="d-flex justify-content-center"><a href="#"><img src="/img/sert-mini.jpg"></a></div>
+    <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30">
+			<? for($n=1; $n<=9; $n++){
+				$size = getimagesize($_SERVER['DOCUMENT_ROOT'] . "/uploads/sertificates/{$n}.jpg");
+				$horizon = $size[0] >= $size[1];
+				$size = $horizon ? '290x-' : '-x200';
+				?><div class="d-flex justify-content-center"><a href="#"><div class="im" style="background-image:url(/sertificates/<?=$size?>/<?=$n?>.jpg)"></div></a></div><?
+			}?>
     </div>
 </section>
 
@@ -154,10 +157,13 @@
   <div class="container">
     <h2>Наши успехи и достижения</h2>
     <p class="lead section-top-15 section-bottom-50">отмечают не только довольные клиенты, но и партнеры по бизнесу</p>
-    <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="3" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30">
-      <div class="d-flex justify-content-center"><a href="#"><img src="/img/advance-mini.jpg"></a></div>
-      <div class="d-flex justify-content-center"><a href="#"><img src="/img/advance-mini.jpg"></a></div>
-      <div class="d-flex justify-content-center"><a href="#"><img src="/img/advance-mini.jpg"></a></div>
+    <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30">
+      <? for($n=1; $n<=3; $n++){
+        $size = getimagesize($_SERVER['DOCUMENT_ROOT'] . "/uploads/our-sertificates/{$n}.jpg");
+        $horizon = $size[0] >= $size[1];
+        $size = $horizon ? '290x-' : '-x200';
+        ?><div class="d-flex justify-content-center"><a href="#"><div class="im" style="background-image:url(/our-sertificates/<?=$size?>/<?=$n?>.jpg)"></div></a></div><?
+      }?>
     </div>
     <p class="lead section-top-34">
       Высокая квалификация сотрудников компании «АКСИС ПРОЕКТЫ» подтверждена дипломами и сертификатами по результатам

@@ -173,7 +173,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 #index-brands .d-flex .d-flex { padding:20px;}
 #index-brands .d-flex a { opacity:0.6; transition: .3s all ease;}
 #index-brands .d-flex a:hover { opacity:1;}
-#index-brands img { max-height:30px;}
+/*#index-brands img { max-height:30px;}*/
 
 .page-footer ul.list { font-size:14px;}
 

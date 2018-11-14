@@ -134,11 +134,11 @@ ob_start();
 <section id="index-brands" class="section-top-50">
   <div class="container">
     <div class="d-flex">
-      <? for($n=1; $n < 18; $n++){ ?>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/img/ibrand<?=rand(1,4)?>.png"></a></div>
+      <? for($n=1; $n<=14; $n++){ ?>
+      <div class="d-flex align-items-center text-center"><a href="#"><img src="/vendors/<?=$n?>.jpg"></a></div>
 			<?}?>
     </div>
-    <div class="section-top-20 section-bottom-50"><a class="link" href="#">ВСЕ БРЕНДЫ</a></div>
+    <div class="section-top-20 section-bottom-50"><?/*<a class="link" href="#">ВСЕ БРЕНДЫ</a>*/?></div>
   </div>
 </section>
 

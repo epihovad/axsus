@@ -72,7 +72,7 @@ if(isset($_GET['action'])){
 			}
 
 			// мылим админу
-			//mailTo(array(set('admin_mail')), $mailto['theme'], $mailto['text']);
+			mailTo(array(set('admin_mail')), $mailto['theme'], $mailto['text']);
 
 			?><script>
       top.jQuery(document).jAlert('show','alert','<?=cleanJS($alert)?>',function(){

@@ -6,7 +6,7 @@ function main()
 
 	?><ul class="rd-navbar-nav"><?
 
-	$mas = getTree("SELECT * FROM {$prx}pages WHERE status=1 AND is_main=1 ORDER BY sort,id");
+	$mas = getTree("SELECT * FROM {$prx}pages WHERE status=1 AND is_main=1 AND id_parent <> 4 ORDER BY sort,id");
 
   if(sizeof($mas)){
 
@@ -16,8 +16,8 @@ function main()
 			$lvl = $vetka['level'];
 
 			$id = $row['id'];
-			$link = $row['type']=='link' ? $row['link'] : ($row['link']=='/' ? '/' : "/{$row['link']}.htm");
-			$childs = getIdChilds("SELECT * FROM {$prx}pages WHERE status=1 AND is_main=1", $id);
+			$link = $row['link'] == '#' ? '#' : ($row['type']=='link' ? $row['link'] : ($row['link']=='/' ? '/' : "/{$row['link']}.htm"));
+			$childs = getIdChilds("SELECT * FROM {$prx}pages WHERE status=1 AND is_main=1 AND id_parent <> 4", $id);
 			$has_childs = sizeof($childs) > 1;
 			$parents = getArrParents("SELECT id,id_parent FROM {$prx}pages WHERE id='%s'", $id);
 			$cur = array_search($mainID, $parents) !== false || ($_SERVER['REQUEST_URI'] == '/' && $link == '/') ? true : false;
@@ -56,8 +56,15 @@ function navigate()
 {
 	global $navigate;
 	if(!$navigate) return;
-	$sep = '<span>/</span>';
-	?><div id="navigate"><a href="/">Главная страница</a><?=$sep?><?=$navigate?><?=$sep?></div><?
+  ?>
+  <section class="bg-mine">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="/">Главная</a></li><?=$navigate?>
+      </ol>
+    </div>
+  </section>
+  <?
 }
 
 function num2str($count,$txt='товар')
