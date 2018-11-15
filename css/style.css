@@ -212,3 +212,6 @@ a.btn, button { text-transform:uppercase; cursor:pointer;}
 	text-decoration: none;
 	opacity:1;
 }
+
+.page-footer h4 { font-size:18px;}
+.page-footer ul.list { font-size:12px;}
