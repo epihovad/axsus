@@ -195,33 +195,26 @@ function getArr($sql, $simple=true) // $simple=true - возвратит "про
 	return (array)$arr;
 }
 // ВЫПАДАЮЩИЙ СПИСОК/МУЛЬТИСПИСОК для таблицы/массива
-function dll($obj, $properties, $value='', $default = null, $class = null) // запрос/массив, св-ва списка, значение (может быть массивом), "пустое" значение(может быть массивом)
-{ 
+// запрос/массив, св-ва списка, значение (может быть массивом), "пустое" значение(может быть массивом)
+function dll($obj, $properties, $value = null, $default = null, $class = null)
+{
 	ob_start();
-	
 	?><select class="form-control input-sm <?=$class?>" <?=$properties?>><?
-	if($default !== null)
-	{
-		if(is_array($default)) 
-		{
-			foreach($default as $k=>$v)
-			{
+	if($default !== null){
+		if(is_array($default)){
+			foreach($default as $k => $v){
 				?><option value="<?=htmlspecialchars($k)?>"<?=$k==$value?' selected':''?>><?=$v?></option><?
 			}
-		} 
-		else 
-		{ 
-			?><option value=""<?=!$value?' selected':''?>><?=$default?></option><?	
+		} else {
+			?><option value=""<?=!$value?' selected':''?>><?=$default?></option><?
 		}
 	}
 	$arr = is_array($obj) ? $obj : getArr($obj);
-	foreach($arr as $key=>$val)
-	{
+	foreach($arr as $key=>$val){
 		$selected = is_array($value) ? in_array($key, $value) : $key==$value;
-		?><option value="<?=htmlspecialchars($key)?>"<?=($selected?' selected':'')?>><?=$val?></option><? 
+		?><option value="<?=htmlspecialchars($key)?>"<?=($selected?' selected':'')?>><?=$val?></option><?
 	}
 	?></select><?
-	
 	return ob_get_clean();
 }
 // ПЕРЕВОД ДАТЫ В ФОРМАТ БАЗЫ ДАННЫХ
@@ -321,26 +314,21 @@ function gtv($tab,$pole,$id)
 	else
 		return getField("SELECT {$pole} FROM {$prx}{$tab} WHERE id='{$id}'");
 }
+
 // ВЫПАДАЮЩИЙ СПИСОК ДЛЯ ПОЛЯ enum
-function dllEnum($tab,$field,$properties,$value="",$default=null)
+function dllEnum($tab, $field, $properties = null, $value = null, $default = null, $class = null)
 {
 	global $prx;
 	
 	ob_start();
-	?>
-	<select class="form-control input-sm" <?=$properties?>><?
-	if($default!==null)
-	{
-		if(is_array($default)) 
-		{
-			foreach($default as $k=>$v)
-			{
-				?><option value="<?=htmlspecialchars($k)?>"><?=$v?></option><?
+	?><select class="form-control input-sm <?=$class?>" <?=$properties?>><?
+	if($default !== null){
+		if(is_array($default)){
+			foreach($default as $k => $v){
+				?><option value="<?=htmlspecialchars($k)?>"<?=$k==$value?' selected':''?>><?=$v?></option><?
 			}
-		} 
-		else 
-		{ 
-			?><option value=""><?=$default?></option><?	
+		} else {
+			?><option value=""<?=!$value?' selected':''?>><?=$default?></option><?
 		}
 	}
 	$res = sql("SHOW COLUMNS FROM {$prx}{$tab} LIKE '{$field}'");
@@ -348,10 +336,10 @@ function dllEnum($tab,$field,$properties,$value="",$default=null)
 	$val = $arr[1];
 	$val = str_replace(array('enum(',')',"'"), '', $val);
 	$arr = explode(',',$val);
-	foreach($arr as $val) 
-	{
+	foreach($arr as $val){
 	  if(!$val) continue;
-		?><option value="<?=$val?>" <?=($val==$value ? 'selected' : '')?>><?=$val?></option><?
+		$selected = is_array($value) ? in_array($val, $value) : $val==$value;
+		?><option value="<?=htmlspecialchars($val)?>"<?=($selected?' selected':'')?>><?=$val?></option><?
 	} 
 	?></select><?
 	return ob_get_clean();

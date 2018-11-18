@@ -21,18 +21,17 @@ if(isset($_GET['action']))
 
 			if(!$name) jAlert('Укажите название');
 
-			$set = "`name`='{$name}',
-			        `text`='{$text}',
-							`status`='{$status}'";
+			$set = "name = '{$name}',
+			        text = '{$text}',
+			        in_slider = '{$in_slider}',
+							status = '{$status}'";
 
 			if(!$id = update($tbl,$set,$id))
 				jAlert('Во время сохранения данных произошла ошибка.');
 
 			// загружаем картинку
-			if(sizeof((array)$_FILES[$tbl]['name']))
-			{
-				foreach($_FILES[$tbl]['name'] as $num=>$null)
-				{
+			if(sizeof((array)$_FILES[$tbl]['name'])){
+				foreach($_FILES[$tbl]['name'] as $num=>$null){
 					if(!$_FILES[$tbl]['name'][$num]) continue;
 
 					remove_img($id, $tbl);
@@ -47,7 +46,8 @@ if(isset($_GET['action']))
 			?><script>top.location.href = '<?=sgp($HTTP_REFERER, 'id', $id, 1)?>';</script><?
 			break;
 		// ----------------- обновление статуса
-		case 'status':
+		case 'in_slider':
+    case 'status':
 			update_flag($tbl,$_GET['action'],$id);
 			break;
 		// ----------------- удаление банера
@@ -94,6 +94,11 @@ if(isset($_GET['red']))
         <th></th>
         <th>Описание</th>
         <td><?=showCK('text', $row['text'])?></td>
+      </tr>
+      <tr>
+        <th><?=help('отображать логотип вендора на главной странице')?></th>
+        <th>На главную</th>
+        <td><?=dll(array('0'=>'нет','1'=>'да'),'name="in_slider"',isset($row['in_slider'])?$row['in_slider']:0)?></td>
       </tr>
 			<tr>
         <th></th>
@@ -178,6 +183,7 @@ else
       <th style="width:1%">№</th>
       <th style="width:1%; text-align:center;"><img src="img/image.png" title="изображение" /></th>
       <th width="100%"><?=SortColumn('Название','name')?></th>
+      <th nowrap><?=SortColumn('На главную','s.in_slider')?> <?=help('отображать логотип вендора на главной странице')?></th>
       <th nowrap><?=SortColumn('Статус','status')?></th>
       <th style="padding:0 30px;"></th>
     </tr>
@@ -207,6 +213,7 @@ else
             </a>
           </th>
           <td class="sp"><a href="?red=<?=$id?>"><?=$row['name']?></a></td>
+          <th><?=btn_flag($row['in_slider'],$id,'action=in_slider&id=')?></th>
           <th><?=btn_flag($row['status'],$id,'action=status&id=')?></th>
           <th nowrap><?=btn_edit($id)?></th>
         </tr>

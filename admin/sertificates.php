@@ -19,39 +19,20 @@ if(isset($_GET['action']))
 			foreach($_POST as $key=>$val)
 				$$key = clean($val);
 
-			$updateLink = false;
-			$where = $id ? " AND id<>'{$id}'" : '';
-
-			if($link){
-				if(getField("SELECT id FROM {$prx}{$tbl} WHERE link='{$link}'{$where}"))
-					$updateLink = true;
-			} else {
-				$link = makeUrl($name);
-				if(getField("SELECT id FROM {$prx}{$tbl} WHERE link='{$link}'{$where}"))
-					$updateLink = true;
-			}
-
-			// полная ссылка на фото
-			$rb = gtv('gallery_catalog','*',$id_catalog);
-			$url = getCatUrl($rb,false,'gallery_catalog','gallery');
-
-			$set = "id_catalog = '{$id_catalog}',
-			        url = '{$url}',
+			$set = "id_vendor = '{$id_vendor}',
 							name = '{$name}',
+							`date` = " . ($date ? ("'" . formatDateTime($date) . "'") : 'NULL') . ",
+							`date_expiration` = " . ($date_expiration ? ("'" . formatDateTime($date_expiration) . "'") : 'NULL') . ",
 							text = ".($text?"'{$text}'":"NULL").",
-							status = '{$status}',
-							`date` = '" . ($date ? formatDateTime($date) : date('Y-m-d')) . "'";
-			if(!$updateLink) $set .= ",link='{$link}'";
+							type = '{$type}',
+							in_slider = '{$in_slider}',
+							status = '{$status}'";
 
 			if(!$id = update($tbl,$set,$id))
 				jAlert('Во время сохранения данных произошла ошибка.');
 
-			if($updateLink)
-				update($tbl,"link='".($link.'_'.$id)."'",$id);
-
 			// загружаем картинку
-			if(sizeof((array)$_FILES[$tbl]['name']))
-			{
+			if(sizeof((array)$_FILES[$tbl]['name'])){
 				foreach($_FILES[$tbl]['name'] as $num=>$null)
 				{
 					if(!$_FILES[$tbl]['name'][$num]) continue;
@@ -67,7 +48,8 @@ if(isset($_GET['action']))
 			?><script>top.location.href = '<?=sgp($HTTP_REFERER, 'id', $id, 1)?>';</script><?
 			break;
 		// ----------------- статус
-		case 'status':
+		case 'in_slider':
+    case 'status':
 			update_flag($tbl,$_GET['action'],$id);
 			break;
 		// ----------------- удаление одной записи
@@ -105,31 +87,36 @@ elseif(isset($_GET['red']))
   <form action="?action=save&id=<?=$id?>" method="post" enctype="multipart/form-data" target="ajax">
     <input type="hidden" name="HTTP_REFERER" value="<?=$_SERVER['HTTP_REFERER']?>">
     <table class="table-edit">
+			<?=show_tr_images($id,'Изображение','Для корректного отображения,<br>рекомендуется загружать изображение размером не более 1000x1000 пискелей',1,$tbl,$tbl)?>
       <tr>
-        <th></th>
-        <th>Рубрика</th>
-        <td><?=dllTree("SELECT * FROM {$prx}gallery_catalog ORDER BY sort,id",'name="id_catalog"',$row['id_catalog'],array('0'=>'без подчинения'),$id)?></td>
-      </tr>
-      <tr>
-        <th></th>
+        <th><?=help('необязательное для заполнения')?></th>
         <th>Название</th>
         <td><?=input('text', 'name', $row['name'])?></td>
       </tr>
       <tr>
-        <th><?=help('при отсутствии значения в данном поле<br>ссылка формируется автоматически')?></th>
-        <th>Ссылка</th>
-        <td><?=input('text', 'link', $row['link'])?></td>
+        <th><?=help('Дата получения сертификата')?></th>
+        <th>Дата получения</th>
+        <td><?=input('date', 'date', isset($row['date']) ? date('d.m.Y', strtotime($row['date'])) : null)?></td>
       </tr>
-			<?=show_tr_images($id,'Фото','',1,$tbl,$tbl)?>
       <tr>
-        <th><?=help('При добавлении/изменении объекта, если поле пустое,<br>дата формируется автоматически (присваивается текущая дата).<br>Дата служит для сортировки объектов в клиентской части сайта.')?></th>
-        <th>Дата добавления</th>
-        <td><?=input('date', 'date', isset($row['date']) ? date('d.m.Y', strtotime($row['date'])) : date('d.m.Y'))?></td>
+        <th><?=help('Дата истечения срока действия сертификата')?></th>
+        <th>Дата истечения</th>
+        <td><?=input('date', 'date_expiration', isset($row['date_expiration']) ? date('d.m.Y', strtotime($row['date_expiration'])) : null)?></td>
       </tr>
       <tr>
         <th></th>
-        <th>Описание</th>
-        <td><?=showCK('text',$row['text'], 'basic')?></td>
+        <th>Вендор</th>
+        <td><?=dll("SELECT * FROM {$prx}vendors ORDER BY name",'name="id_vendor"',$row['id_vendor'],array('null'=>'-- без привязки --'))?></td>
+      </tr>
+      <tr>
+        <th></th>
+        <th>Тип</th>
+        <td><?=dllEnum($tbl, 'type', 'name="type"', $row['type'])?></td>
+      </tr>
+      <tr>
+        <th></th>
+        <th>В слайдер</th>
+        <td><?=dll(array('0'=>'нет','1'=>'да'),'name="in_slider"',isset($row['in_slider'])?$row['in_slider']:0)?></td>
       </tr>
       <tr>
         <th></th>
@@ -149,36 +136,64 @@ elseif(isset($_GET['red']))
 else {
 
 	$cur_page = (int)$_GET['page'] ?: 1;
-	$fl['vendors'] = (int)$_GET['fl']['vendors'];
+
+	$get_prm = array('vendors','type','day_start','day_end','day_exp_start','day_exp_end','sort');
+	foreach ($get_prm as $k){
+		$fl[$k] = $_GET['fl'][$k];
+	}
 	$fl['search'] = stripslashes($_GET['fl']['search']);
 
 	$filters['vendors'] = "выбор сертификатов по вендору";
 	$filters['type'] = "выбор сертификатов по типу";
+	$filters['day_start'] = "выбор сертификатов по Дате (С даты)";
+	$filters['day_end'] = "выбор сертификатов по Дате (ПО дату)";
 
+	$args = array();
 	$where = '';
-	if($fl['vendors']){
-		$where .= "\r\nAND CONCAT(',',s.id_vendor,',') LIKE '%,{$fl['id_vendors']},%'";
-	}
-	if($fl['search'] != ''){
-		$sf = array('name','text');
-		$w = '';
-		foreach ($sf as $field){
-			$w .= ($w ? ' OR' : '') . "\r\n`{$field}` LIKE '%{$fl['search']}%'";
-		}
-		$where .= "\r\n AND ({$w}\r\n)";
-	}
 
-	$query = "SELECT s.*, v.name as vendor
-	          FROM {$prx}{$tbl} s
-	          JOIN {$prx}vendors v ON v.id = s.id_vendor
-	          WHERE 1{$where}";
+	$filtersArr = array(
+	  'vendors' => 'v.name',
+		'type' => 's.type',
+	);
+	foreach ($filtersArr as $type => $field){
+    $w = '';
+    $vals = explode(',', $fl[$type]);
+    foreach ($vals as $val){
+      if($val && $val !== 'null'){
+        $w .= ($w ? ' OR' : '') . "\r\n{$field} = ?";
+        $args[] = $val;
+      }
+    }
+    if($w){
+      $where .= "\r\nAND ({$w}\r\n)";
+    }
+	}
+	//
+	if($fl['day_start']){     $where .= "\r\nAND s.date >= '" . date('Y-m-d', strtotime($fl['day_start'])) . "'"; }
+	if($fl['day_end']){       $where .= "\r\nAND s.date < '" . date('Y-m-d', strtotime($fl['day_end'] . '+1 days')) . "'"; }
+	if($fl['day_exp_start']){ $where .= "\r\nAND s.date_expiration >= '" . date('Y-m-d', strtotime($fl['day_exp_start'])) . "'"; }
+	if($fl['day_exp_end']){   $where .= "\r\nAND s.date_expiration < '" . date('Y-m-d', strtotime($fl['day_exp_end'] . '+1 days')) . "'"; }
 
-	$r = sql($query);
+	$query  = "SELECT s.*, v.name as vendor\r\n";
+	$query .= "FROM {$prx}{$tbl} s\r\n";
+	$query .= "LEFT JOIN {$prx}vendors v ON v.id = s.id_vendor\r\n";
+	$query .= "WHERE 1{$where}";
+
+	/*$r = sql($query);
 	$count_obj = @mysqli_num_rows($r); // кол-во объектов в базе
-	$count_obj_on_page = 30; // кол-во объектов на странице
+	$count_obj_on_page = 2; // кол-во объектов на странице
 	$count_page = ceil($count_obj/$count_obj_on_page); // количество страниц
+*/
+	if($fl['sort']){
+		foreach ($fl['sort'] as $f => $t){
+			$query .= "\r\nORDER BY {$f} {$t}";
+			break;
+		}
+	} else {
+		$query .= "\r\nORDER BY s.sort,s.id";
+	}
 
-  $query .= "\r\nORDER BY s.sort,s.id LIMIT " . ($count_obj_on_page * $cur_page - $count_obj_on_page) . ',' . $count_obj_on_page;
+  //$query .= "\r\nLIMIT " . ($count_obj_on_page * $cur_page - $count_obj_on_page) . ',' . $count_obj_on_page;
 
   ob_start();
 	//pre($query);
@@ -203,7 +218,15 @@ else {
       </div>
       <div class="item">
         <label>Тип сертификата</label>
-				<?=dllEnum($tbl, 'type', 'name="fl[type]"', $fl['type']?explode(',',$fl['type']):null, array('-- неважно --'))?>
+				<?=dllEnum($tbl, 'type', 'name="fl[type]"', $fl['type']?explode(',',$fl['type']):null, array('null'=>'-- неважно --'))?>
+      </div>
+      <div class="item">
+        <label>Дата получения сертификата</label>
+        <div>с <?=input('date',"fl[day_start]",$fl['day_start'])?> по <?=input('date',"fl[day_end]",$fl['day_end'])?></div>
+      </div>
+      <div class="item">
+        <label>Дата истечения срока действия сертификата</label>
+        <div>с <?=input('date',"fl[day_exp_start]",$fl['day_exp_start'])?> по <?=input('date',"fl[day_exp_end]",$fl['day_exp_end'])?></div>
       </div>
       <div class="item search">
         <label>Контекстный поиск</label><br>
@@ -213,18 +236,20 @@ else {
     </div>
   </div>
 
-	<?=pagination($count_page, $cur_page, true, 'padding:0 0 10px;')?>
+	<?//=pagination($count_page, $cur_page, true, 'padding:0 0 10px;')?>
   <form id="ftl" method="post" target="ajax">
-    <table class="table-list">
+    <table class="table-list" tbl="<?=$tbl?>">
       <thead>
       <tr>
         <th><input type="checkbox" name="del" /></th>
         <th>№</th>
 				<? if(!$fl['sort']) { ?><th nowrap><?=help('параметр с помощью которого можно изменить<br>порядок вывода объектов в клиентской части сайта')?></th><? }?>
 				<th style="text-align:center"><img src="img/image.png" title="Фото" /></th>
-        <th width="50%"><?=SortColumn('Вендор','v.name')?></th>
-        <th width="50%"><?=SortColumn('Название','s.name')?></th>
-				<th nowrap><?=SortColumn('Тип','s.type')?></th>
+        <th width="33%"><?=SortColumn('Вендор','v.name')?></th>
+        <th width="33%"><?=SortColumn('Название','s.name')?></th>
+				<th width="33%"><?=SortColumn('Тип','s.type')?></th>
+        <th nowrap><?=SortColumn('Дата получения','s.date')?> <?=help('Дата получения сертификата')?></th>
+        <th nowrap><?=SortColumn('Дата истечения','s.date_expiration')?> <?=help('Дата истечения срока действия сертификата')?></th>
         <th nowrap><?=SortColumn('В слайдер','s.in_slider')?> <?=help('отображать сертификат в слайдере')?></th>
         <th nowrap><?=SortColumn('Статус','s.status')?></th>
         <th style="padding:0 30px;"></th>
@@ -258,6 +283,8 @@ else {
             <td class="sp" nowrap><?=$row['vendor']?></td>
             <td class="sp" nowrap><a href="?red=<?=$id?>"><?=$row['name']?></a></td>
             <td class="sp" nowrap><?=$row['type']?></td>
+            <th nowrap align="center"><?=$row['date']?date('d.m.Y', strtotime($row['date'])):null?></th>
+            <th nowrap align="center"><?=$row['date_expiration']?date('d.m.Y', strtotime($row['date_expiration'])):null?></th>
             <th><?=btn_flag($row['in_slider'],$id,'action=in_slider&id=')?></th>
             <th><?=btn_flag($row['status'],$id,'action=status&id=')?></th>
             <th nowrap><?=btn_edit($id)?></th>

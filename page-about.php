@@ -136,39 +136,54 @@
   </div>
 </section>
 
-<section id="our-sert" class="section-34 section-md-50 section-lg-72">
+<?
+$r = sql("SELECT * FROM {$prx}sertificates WHERE type = 'общий' AND status = 1 ORDER BY sort, id");
+if(mysqli_num_rows($r)){
+  ?>
+  <section id="our-sert" class="section-34 section-md-50 section-lg-72">
   <div class="container">
     <h2>Наши сертификаты</h2>
-    <p class="lead section-top-15 section-bottom-50">
-      Мы являемся сертифицированными партнерами<br>
-      ведущих мировых производителей
-    </p>
-    <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30">
-			<? for($n=1; $n<=9; $n++){
-				$size = getimagesize($_SERVER['DOCUMENT_ROOT'] . "/uploads/sertificates/{$n}.jpg");
-				$horizon = $size[0] >= $size[1];
-				$size = $horizon ? '290x-' : '-x200';
-				?><div class="d-flex justify-content-center"><a href="#"><div class="im" style="background-image:url(/sertificates/<?=$size?>/<?=$n?>.jpg)"></div></a></div><?
-			}?>
+    <p class="lead section-top-15 section-bottom-50">Мы являемся сертифицированными партнерами<br>ведущих мировых производителей</p>
+    <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30"><?
+    while($row = mysqli_fetch_assoc($r)) {
+      $id = $row['id'];
+			$size = getimagesize($_SERVER['DOCUMENT_ROOT'] . "/uploads/sertificates/{$id}.jpg");
+			$horizon = $size[0] >= $size[1];
+			$size = $horizon ? '290x-' : '-x200';
+			?><div class="d-flex justify-content-center"><a href="#"><div class="im" style="background-image:url(/sertificates/<?=$size?>/<?=$id?>.jpg)"></div></a></div><?
+    }
+    ?>
     </div>
-</section>
+  </section>
+  <?
+}
+?>
 
-<section id="our-advance" class="section-top-34 section-md-top-50 section-lg-top-72">
-  <div class="container">
-    <h2>Наши успехи и достижения</h2>
-    <p class="lead section-top-15 section-bottom-50">отмечают не только довольные клиенты, но и партнеры по бизнесу</p>
-    <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30">
-      <? for($n=1; $n<=3; $n++){
-        $size = getimagesize($_SERVER['DOCUMENT_ROOT'] . "/uploads/our-sertificates/{$n}.jpg");
-        $horizon = $size[0] >= $size[1];
-        $size = $horizon ? '290x-' : '-x200';
-        ?><div class="d-flex justify-content-center"><a href="#"><div class="im" style="background-image:url(/our-sertificates/<?=$size?>/<?=$n?>.jpg)"></div></a></div><?
-      }?>
-    </div>
-    <p class="lead section-top-34">
-      Высокая квалификация сотрудников компании «АКСИС ПРОЕКТЫ» подтверждена дипломами и сертификатами по результатам
-      экзаменов и тестов, пройденных в учебных центрах компаний-производителей. Успехи работы выражаются и в наградах за высокие
-      объемы продаж компьютерной техники и оборудования от наших поставщиков.
-    </p>
-    <div class="section-top-34 section-bottom-72"><a class="btn btn-primary fb-btn" href="#">получить бесплатную консультацию</a></div>
-</section>
+<?
+$r = sql("SELECT * FROM {$prx}sertificates WHERE type = 'индивидуальный' AND status = 1 ORDER BY sort, id");
+if(mysqli_num_rows($r)){
+	?>
+  <section id="our-advance" class="section-top-34 section-md-top-50 section-lg-top-72">
+    <div class="container">
+      <h2>Наши успехи и достижения</h2>
+      <p class="lead section-top-15 section-bottom-50">отмечают не только довольные клиенты, но и партнеры по бизнесу</p>
+      <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30"><?
+				while($row = mysqli_fetch_assoc($r)) {
+					$id = $row['id'];
+					$size = getimagesize($_SERVER['DOCUMENT_ROOT'] . "/uploads/sertificates/{$id}.jpg");
+					$horizon = $size[0] >= $size[1];
+					$size = $horizon ? '290x-' : '-x200';
+					?><div class="d-flex justify-content-center"><a href="#"><div class="im" style="background-image:url(/sertificates/<?=$size?>/<?=$id?>.jpg)"></div></a></div><?
+				}
+				?>
+      </div>
+      <p class="lead section-top-34">
+        Высокая квалификация сотрудников компании «АКСИС ПРОЕКТЫ» подтверждена дипломами и сертификатами по результатам
+        экзаменов и тестов, пройденных в учебных центрах компаний-производителей. Успехи работы выражаются и в наградах за высокие
+        объемы продаж компьютерной техники и оборудования от наших поставщиков.
+      </p>
+      <div class="section-top-34 section-bottom-72"><a class="btn btn-primary fb-btn" href="#">получить бесплатную консультацию</a></div>
+  </section>
+	<?
+}
+?>
