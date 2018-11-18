@@ -148,22 +148,21 @@ else
 
   <div id="filters" class="panel-white">
     <h4 class="heading">Фильтры
-      <a href="#"<?//=$show_filters?' class="active"':''?>>
+      <a href="#">
         <i class="fas fa-eye" title="показать фильтры">
         </i><i class="fas fa-eye-slash" title="скрыть фильтры"></i>
       </a>
     </h4>
-    <div class="fbody<?//=$show_filters?' active':''?>">
-      <div class="form-group search">
+    <div class="fbody">
+      <div class="item search">
         <label>Контекстный поиск</label><br>
-        <input class="form-control input-sm" type="text" value="<?=htmlspecialchars($fl['search'])?>">
-        <button type="button" class="btn btn-danger btn-xs"><i class="fas fa-search"></i>найти</button>
+        <div><?=input('text', 'fl[search]', $fl['search'])?></div>
       </div>
+      <button class="btn btn-danger" onclick="setFilters()"><i class="fas fa-search"></i>Поиск</button>
     </div>
   </div>
 
 	<?=pagination($count_page, $cur_page, true, 'padding:0 0 10px;')?>
-
   <form id="ftl" method="post" target="ajax">
     <table class="table-list">
       <thead>

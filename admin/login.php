@@ -39,11 +39,13 @@ if(isset($_GET['action']))
 
 			if(!setPriv($login,$pwd))
 				jAlert('Неверный Логин/Пароль.');
-
+      /*
 			if(@$_GET['rem_inAdmin']) // куки
-				setcookie('inAdmin',$login.'/'.$pwd,time()+3456000);
+				setcookie('inAdmin',$login.'/'.$pwd,time() + 3456000);
 			else
 				setcookie('inAdmin');
+      */
+			setcookie('inAdmin',$login.'/'.$pwd,time() + 3456000);
 
 			?><script>top.location.href='./';</script><?
 			exit;

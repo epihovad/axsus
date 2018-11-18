@@ -328,7 +328,7 @@ function dllEnum($tab,$field,$properties,$value="",$default=null)
 	
 	ob_start();
 	?>
-	<select <?=$properties?>><? 
+	<select class="form-control input-sm" <?=$properties?>><?
 	if($default!==null)
 	{
 		if(is_array($default)) 
