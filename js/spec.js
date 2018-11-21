@@ -28,6 +28,9 @@ $(document).ready(function () {
   isDesktop = $html.hasClass("desktop");
 
   //
+  $('a.back').click(function(){ history.back(); return false; });
+
+  //
   if($('header').height() > 920){
     $('#header-map').show();
   }

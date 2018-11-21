@@ -28,7 +28,7 @@ ob_start();
 <div class="container-fluid" style="padding-bottom:40px">
   <h1><?=$h1?></h1>
   <?=$data?>
-  <a href="" class="back" rel="nofollow"><i class="fas fa-arrow-left"></i>назад</a>
+  <a href="" class="back" rel="nofollow">назад</a>
 </div>
 <?
 $content = ob_get_clean();

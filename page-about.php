@@ -186,4 +186,3 @@ if(mysqli_num_rows($r)){
   </section>
 	<?
 }
-?>

@@ -28,6 +28,11 @@ figure { margin-bottom: 0;}
 
 html p a:hover { text-decoration: none;}
 
+a.back { text-align:left; padding-left:15px;}
+a.back:before { content: '\f053'; font:900 16px "Font Awesome 5 Free"; position:absolute; margin:3px 0 0 -15px; }
+a.more { float:right; padding-left:15px; padding-top:20px;}
+a.more:before { content: '\f105'; font:900 16px "Font Awesome 5 Free"; position:absolute; margin:1px 0 0 -15px; }
+
 .page-header {
 	position: relative;
 	margin: 0;
@@ -215,3 +220,20 @@ a.btn, button { text-transform:uppercase; cursor:pointer;}
 
 .page-footer h4 { font-size:18px;}
 .page-footer ul.list { font-size:12px;}
+
+.content { text-align:justify; }
+.content img { border:none; }
+.content h1 { font-size:36px; margin:0 0 20px 0; text-align:left;}
+.content h2 { font-size:28px; margin:20px 0 20px 0; text-align:left; }
+.content h3, .content h4, .content h5, .content h6 { font-size:20px; margin:10px 0 20px 0; }
+
+.content a, .content a:visited, .content a:hover { outline:none !important; cursor:pointer; color:#01a6ff; }
+.content a, .content a:visited { color:#01a6ff; text-decoration:none; }
+.content a:hover { color:#296ca9; text-decoration:none; }
+.content b, .content strong { color:#006cb0;}
+
+.content p { padding-bottom:20px; }
+.content ul { margin:0 0 20px 0; padding:0; list-style:none;}
+.content ul li { margin:0; padding:0 0 15px 40px;}
+.content ul li:last-child { margin:0;}
+.content ul li:before { content:'■'; position:absolute; margin-left:-20px; font-size:14px; line-height:18px;}

@@ -509,6 +509,25 @@ function remove_filters()
 	}
 }
 
+function filtersWhere($filtersArr){
+
+  global $where, $fl;
+
+  foreach ($filtersArr as $type => $field){
+		$w = '';
+		$vals = explode(',', $fl[$type]);
+		foreach ($vals as $val){
+			if($val && $val !== 'null'){
+				$w .= ($w ? ' OR' : '') . "\r\n{$field} = ?";
+				$args[] = $val;
+			}
+		}
+		if($w){
+			$where .= "\r\nAND ({$w}\r\n)";
+		}
+	}
+}
+
 function change_user_info($info,$user)
 {
 	preg_match_all("|ФИО</b>: ([^<]*)|i",$info,$mas);
