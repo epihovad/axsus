@@ -1,6 +1,7 @@
 <?
-ini_set('display_errors',1);
 require('inc/common.php');
+
+$mainID = 6;
 
 $link = clean($_GET['link']);
 $tbl = 'articles';
