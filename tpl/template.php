@@ -15,13 +15,16 @@
 
   <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="/css/bootstrap.css" rel="stylesheet">
-  <link href="/css/style.css?v=20181115" rel="stylesheet" type="text/css" />
+  <link href="/css/style.css?v=20181127" rel="stylesheet" type="text/css" />
   <link href="/css/media.css?v=20181115" rel="stylesheet" type="text/css" />
-  <link href="/css/style_new.css?v=20181115" rel="stylesheet">
+  <link href="/css/style_new.css?v=20181127" rel="stylesheet">
 
   <script src="/js/core.min.js"></script>
   <script src="/js/ui/jquery-ui.min.js" type="text/javascript"></script>
-  <script src="/js/spec.js"></script>
+  <script src="/js/spec.js?v=20181127"></script>
+
+  <script src="/js/device.min.js"></script>
+  <script src="/js/jquery.mb.YTPlayer.js"></script>
 
   <script src="/js/arcticmodal/jquery.arcticmodal-0.3.min.js"></script>
   <link rel="stylesheet" href="/js/arcticmodal/jquery.arcticmodal-0.3.css">
@@ -47,8 +50,8 @@
 <div class="page text-center">
 
   <!-- Page Header-->
-  <header class="page-header<?=$index?' bg-image-right full-height':''?>">
-
+  <header id="header" class="page-header<?=$index?' page-header-index':''?><?/*=$index?' bg-image-right full-height':''*/?>"
+    data-property="{videoURL:'MPbm4PayMnM',containment:'header', autoPlay:true, mute:true, showControls:false, opacity:1}">
     <!-- RD Navbar-->
     <div class="rd-navbar-wrap">
       <nav class="rd-navbar<?=$index?' rd-navbar-index':''?>" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-sm-stick-up-offset="50px" data-lg-stick-up-offset="67px">
