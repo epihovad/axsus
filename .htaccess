@@ -37,3 +37,7 @@ RewriteRule ^([a-zA-Z0-9_-]+).htm&(.*)$ pages.php?link=$1&$2
 # -------------- Статьи
 RewriteRule ^articles/([a-zA-Z0-9_-]+).htm$ articles.php?link=$1
 RewriteRule ^articles/(.*)$ articles.php?link=$1
+
+# -------------- Кейсы
+RewriteRule ^cases/([a-zA-Z0-9_-]+).htm$ cases.php?link=$1
+RewriteRule ^cases/(.*)$ cases.php?link=$1

@@ -15,22 +15,22 @@
 
   <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="/css/bootstrap.css" rel="stylesheet">
-  <link href="/css/style.css?v=20181127" rel="stylesheet" type="text/css" />
-  <link href="/css/media.css?v=20181115" rel="stylesheet" type="text/css" />
-  <link href="/css/style_new.css?v=20181127" rel="stylesheet">
+  <link href="/css/style.css?v=20181129" rel="stylesheet" />
+  <link href="/css/media.css?v=20181129" rel="stylesheet" />
+  <link href="/css/style_new.css?v=20181129" rel="stylesheet">
 
   <script src="/js/core.min.js"></script>
   <script src="/js/ui/jquery-ui.min.js" type="text/javascript"></script>
-  <script src="/js/spec.js?v=20181127"></script>
+  <script src="/js/spec.js?v=20181129"></script>
 
   <script src="/js/device.min.js"></script>
   <script src="/js/jquery.mb.YTPlayer.js"></script>
 
   <script src="/js/arcticmodal/jquery.arcticmodal-0.3.min.js"></script>
-  <link rel="stylesheet" href="/js/arcticmodal/jquery.arcticmodal-0.3.css">
-  <link rel="stylesheet" href="/js/arcticmodal/themes/simple.css">
+  <link href="/js/arcticmodal/jquery.arcticmodal-0.3.css" rel="stylesheet">
+  <link href="/js/arcticmodal/themes/simple.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="/js/jAlert/jAlert.css" type="text/css" />
+  <link href="/js/jAlert/jAlert.css" rel="stylesheet" type="text/css" />
   <script src="/js/jAlert/jquery.jAlert.min.js"></script>
 
   <script src="/js/inputmask.min.js"></script>
@@ -38,6 +38,16 @@
 
   <script src="/js/parallax.min.js"></script>
   <script src="/js/scroll-startstop.events.jquery.js"></script>
+
+  <? if($index){?>
+  <link href="/js/jquery-background-video/jquery.background-video.css" rel="stylesheet">
+  <script src="/js/jquery-background-video/jquery.background-video.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.axsus-bg').bgVideo({fadeIn: 2000, showPausePlay: false});
+    });
+  </script>
+  <?}?>
 
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -50,60 +60,70 @@
 <div class="page text-center">
 
   <!-- Page Header-->
-  <header id="header" class="page-header<?=$index?' page-header-index':''?><?/*=$index?' bg-image-right full-height':''*/?>"
-    data-property="{videoURL:'MPbm4PayMnM',containment:'header', autoPlay:true, mute:true, showControls:false, opacity:1}">
-    <!-- RD Navbar-->
-    <div class="rd-navbar-wrap">
-      <nav class="rd-navbar<?=$index?' rd-navbar-index':''?>" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-sm-stick-up-offset="50px" data-lg-stick-up-offset="67px">
-        <!-- RD Navbar Toggle-->
-        <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-top-panel"><span></span></button>
-        <div class="rd-navbar-collapse rd-navbar-top-panel">
-          <p class="offset-none">
-            <a href="callto:84992133401"><span class="icon text-white icon-xs fas fa-phone"></span>8.499.213.34.01</a>
-          </p>
-        </div>
-        <div class="rd-navbar-inner">
-          <!-- RD Navbar Panel-->
-          <div class="rd-navbar-panel">
-            <!-- RD Navbar Toggle-->
-            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-            <!-- RD Navbar Brand-->
-            <div class="rd-navbar-brand">
-              <ul>
-                <li><a class="fab fa-instagram icon icon-dark icon-xs" href="#"></a></li>
-                <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="#"></a></li>
-              </ul>
-              <a href="/" style="display:inline-block"><img class="img-responsive" alt="" src="/img/logo.png"></a>
+  <header id="header" class="page-header<?=$index?' page-header-index':''?><?/*=$index?' bg-image-right full-height':''*/?>">
+
+    <div class="jquery-background-video-wrapper">
+
+      <video class="axsus-bg jquery-background-video" loop autoplay muted poster="/img/axsus-bg.jpg">
+        <source src="/img/axsus-bg.mp4" type="video/mp4">
+        <source src="/img/axsus-bg.webm" type="video/webm">
+        <source src="/img/axsus-bg.ogv" type="video/ogg">
+      </video>
+
+      <!-- RD Navbar-->
+      <div class="rd-navbar-wrap">
+        <nav class="rd-navbar<?=$index?' rd-navbar-index':''?>" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-sm-stick-up-offset="50px" data-lg-stick-up-offset="67px">
+          <!-- RD Navbar Toggle-->
+          <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-top-panel"><span></span></button>
+          <div class="rd-navbar-collapse rd-navbar-top-panel">
+            <p class="offset-none">
+              <a href="callto:84992133401"><span class="icon text-white icon-xs fas fa-phone"></span>8.499.213.34.01</a>
+            </p>
+          </div>
+          <div class="rd-navbar-inner">
+            <!-- RD Navbar Panel-->
+            <div class="rd-navbar-panel">
+              <!-- RD Navbar Toggle-->
+              <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+              <!-- RD Navbar Brand-->
+              <div class="rd-navbar-brand">
+                <ul>
+                  <li><a class="fab fa-instagram icon icon-dark icon-xs" href="#"></a></li>
+                  <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="#"></a></li>
+                </ul>
+                <a href="/" style="display:inline-block"><img class="img-responsive" alt="" src="/img/logo.png"></a>
+              </div>
+            </div>
+            <div class="rd-navbar-nav-wrap">
+              <!-- RD Navbar Nav-->
+              <?=main()?>
             </div>
           </div>
-          <div class="rd-navbar-nav-wrap">
-            <!-- RD Navbar Nav-->
-            <?=main()?>
+        </nav>
+      </div>
+
+      <? if ($index){ ?>
+      <div class="container section-xxl-top-50 section-50 section-md-bottom-110 header-text">
+        <div class="row justify-content-md-center justify-content-xl-start">
+          <div class="col-lg-8 col-xl-3 text-xl-left">
+            <h1>Поставка компьютерного оборудования корпоративным пользователям</h1>
+            <ul class="list rd-navbar-list">
+              <?
+              $r = sql("SELECT * FROM {$prx}pages WHERE id_parent = 4 AND status=1 ORDER BY sort,id");
+              while ($arr = mysqli_fetch_assoc($r)){
+                //$link = $arr['type']=='link' ? $arr['link'] : ($arr['link']=='/' ? '/' : "/{$arr['link']}.htm");
+                $link = '/service.htm';
+                ?><li><a href="<?=$link?>"><?=$arr['name']?></a></li><?
+              }
+              ?>
+            </ul>
+            <img id="header-map" src="/img/header-map.png" style="display:none">
           </div>
         </div>
-      </nav>
-    </div>
-
-    <? if ($index){ ?>
-    <div class="container section-xxl-top-50 section-50 section-md-bottom-110 header-text">
-      <div class="row justify-content-md-center justify-content-xl-start">
-        <div class="col-lg-8 col-xl-3 text-xl-left">
-          <h1>Поставка компьютерного оборудования корпоративным пользователям</h1>
-          <ul class="list rd-navbar-list">
-            <?
-						$r = sql("SELECT * FROM {$prx}pages WHERE id_parent = 4 AND status=1 ORDER BY sort,id");
-						while ($arr = mysqli_fetch_assoc($r)){
-							//$link = $arr['type']=='link' ? $arr['link'] : ($arr['link']=='/' ? '/' : "/{$arr['link']}.htm");
-              $link = '/service.htm';
-              ?><li><a href="<?=$link?>"><?=$arr['name']?></a></li><?
-            }
-            ?>
-          </ul>
-          <img id="header-map" src="/img/header-map.png" style="display:none">
-        </div>
       </div>
+      <?}?>
+
     </div>
-		<?}?>
 
   </header>
 

@@ -38,7 +38,7 @@ a.more:before { content: '\f105'; font:900 16px "Font Awesome 5 Free"; position:
 	margin: 0;
 	padding: 0;
 	border-bottom: 0;
-	background-color: #2c2c2c;
+	/*background-color: #2c2c2c;*/
 }
 
 .page-header .lead { font-size: 17px; }
@@ -132,6 +132,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 @media (min-width: 1200px) {
 	.rd-navbar-list {background: url(/img/navbar-list-bg.png) no-repeat 0 -20px;}
 }
+
+.jquery-background-video-wrapper { background-image: url(/img/axsus-bg.jpg);}
 
 .header-text h1 { font-size:24px; line-height:28px; padding-bottom:45px;}
 .header-text .list li { padding: 0 0 0 20px; margin: 0; letter-spacing: -0.02em;}

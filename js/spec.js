@@ -41,11 +41,11 @@ $(document).ready(function () {
     return false;
   });
 
-  $('header').mb_YTPlayer({
+  /*$('header').mb_YTPlayer({
     onReady: function(event) {
       //alert(444);
     }
-  });
+  });*/
 
   /**
    * @desc Initialize owl carousel plugin
