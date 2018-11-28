@@ -44,7 +44,7 @@
   <script src="/js/jquery-background-video/jquery.background-video.js"></script>
   <script>
     $(document).ready(function(){
-      $('.axsus-bg').bgVideo({fadeIn: 2000, showPausePlay: false});
+      $('.axsus-bg').bgVideo({fadeIn: 2000, showPausePlay: false, pauseAfter: 0});
     });
   </script>
   <?}?>
