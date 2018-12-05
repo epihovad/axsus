@@ -62,68 +62,77 @@
   <!-- Page Header-->
   <header id="header" class="page-header<?=$index?' page-header-index':''?><?/*=$index?' bg-image-right full-height':''*/?>">
 
-    <div class="jquery-background-video-wrapper">
+    <? ob_start(); ?>
 
-      <video class="axsus-bg jquery-background-video" loop autoplay muted poster="/img/axsus-bg.jpg">
-        <source src="/img/axsus-bg.mp4" type="video/mp4">
-        <source src="/img/axsus-bg.webm" type="video/webm">
-        <source src="/img/axsus-bg.ogv" type="video/ogg">
-      </video>
-
-      <!-- RD Navbar-->
-      <div class="rd-navbar-wrap">
-        <nav class="rd-navbar<?=$index?' rd-navbar-index':''?>" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-sm-stick-up-offset="50px" data-lg-stick-up-offset="67px">
-          <!-- RD Navbar Toggle-->
-          <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-top-panel"><span></span></button>
-          <div class="rd-navbar-collapse rd-navbar-top-panel">
-            <p class="offset-none">
-              <a href="callto:84992133401"><span class="icon text-white icon-xs fas fa-phone"></span>8.499.213.34.01</a>
-            </p>
-          </div>
-          <div class="rd-navbar-inner">
-            <!-- RD Navbar Panel-->
-            <div class="rd-navbar-panel">
-              <!-- RD Navbar Toggle-->
-              <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-              <!-- RD Navbar Brand-->
-              <div class="rd-navbar-brand">
-                <ul>
-                  <li><a class="fab fa-instagram icon icon-dark icon-xs" href="#"></a></li>
-                  <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="#"></a></li>
-                </ul>
-                <a href="/" style="display:inline-block"><img class="img-responsive" alt="" src="/img/logo.png"></a>
-              </div>
-            </div>
-            <div class="rd-navbar-nav-wrap">
-              <!-- RD Navbar Nav-->
-              <?=main()?>
+    <!-- RD Navbar-->
+    <div class="rd-navbar-wrap">
+      <nav class="rd-navbar<?=$index?' rd-navbar-index':''?>" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-sm-stick-up-offset="50px" data-lg-stick-up-offset="67px">
+        <!-- RD Navbar Toggle-->
+        <button class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-top-panel"><span></span></button>
+        <div class="rd-navbar-collapse rd-navbar-top-panel">
+          <p class="offset-none">
+            <a href="callto:84992133401"><span class="icon text-white icon-xs fas fa-phone"></span>8.499.213.34.01</a>
+          </p>
+        </div>
+        <div class="rd-navbar-inner">
+          <!-- RD Navbar Panel-->
+          <div class="rd-navbar-panel">
+            <!-- RD Navbar Toggle-->
+            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+            <!-- RD Navbar Brand-->
+            <div class="rd-navbar-brand">
+              <ul>
+                <li><a class="fab fa-instagram icon icon-dark icon-xs" href="#"></a></li>
+                <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="#"></a></li>
+              </ul>
+              <a href="/" style="display:inline-block"><img class="img-responsive" alt="" src="/img/logo.png"></a>
             </div>
           </div>
-        </nav>
-      </div>
-
-      <? if ($index){ ?>
-      <div class="container section-xxl-top-50 section-50 section-md-bottom-110 header-text">
-        <div class="row justify-content-md-center justify-content-xl-start">
-          <div class="col-lg-8 col-xl-3 text-xl-left">
-            <h1>Поставка компьютерного оборудования корпоративным пользователям</h1>
-            <ul class="list rd-navbar-list">
-              <?
-              $r = sql("SELECT * FROM {$prx}pages WHERE id_parent = 4 AND status=1 ORDER BY sort,id");
-              while ($arr = mysqli_fetch_assoc($r)){
-                //$link = $arr['type']=='link' ? $arr['link'] : ($arr['link']=='/' ? '/' : "/{$arr['link']}.htm");
-                $link = '/service.htm';
-                ?><li><a href="<?=$link?>"><?=$arr['name']?></a></li><?
-              }
-              ?>
-            </ul>
-            <img id="header-map" src="/img/header-map.png" style="display:none">
+          <div class="rd-navbar-nav-wrap">
+            <!-- RD Navbar Nav-->
+						<?=main()?>
           </div>
         </div>
-      </div>
-      <?}?>
-
+      </nav>
     </div>
+
+    <? $header_content = ob_get_clean(); ?>
+
+    <? if($index){ ?>
+      <div class="jquery-background-video-wrapper">
+
+        <video class="axsus-bg jquery-background-video" loop autoplay muted poster="/img/axsus-bg.jpg">
+          <source src="/img/axsus-bg.mp4" type="video/mp4">
+          <source src="/img/axsus-bg.webm" type="video/webm">
+          <source src="/img/axsus-bg.ogv" type="video/ogg">
+        </video>
+
+        <?=$header_content?>
+
+        <div class="container section-xxl-top-50 section-50 section-md-bottom-110 header-text">
+          <div class="row justify-content-md-center justify-content-xl-start">
+            <div class="col-lg-8 col-xl-3 text-xl-left">
+              <h1>Поставка компьютерного оборудования корпоративным пользователям</h1>
+              <ul class="list rd-navbar-list">
+								<?
+								$r = sql("SELECT * FROM {$prx}pages WHERE id_parent = 4 AND status=1 ORDER BY sort,id");
+								while ($arr = mysqli_fetch_assoc($r)){
+									//$link = $arr['type']=='link' ? $arr['link'] : ($arr['link']=='/' ? '/' : "/{$arr['link']}.htm");
+									$link = '/service.htm';
+									?><li><a href="<?=$link?>"><?=$arr['name']?></a></li><?
+								}
+								?>
+              </ul>
+              <img id="header-map" src="/img/header-map.png" style="display:none">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <?
+    } else {
+      echo $header_content;
+    } ?>
 
   </header>
 
