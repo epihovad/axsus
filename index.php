@@ -131,17 +131,24 @@ ob_start();
   </div>
 </section>
 
-<section id="index-brands" class="section-top-50">
-  <div class="container">
-    <div class="d-flex">
-      <? for($n=1; $n<=14; $n++){ ?>
-      <div class="d-flex align-items-center text-center"><a href="#"><img src="/vendors/<?=$n?>.jpg"></a></div>
-			<?}?>
-    </div>
-    <div class="section-top-20 section-bottom-50"><?/*<a class="link" href="#">ВСЕ БРЕНДЫ</a>*/?></div>
-  </div>
-</section>
-
 <?
+$r = sql("SELECT * FROM {$prx}vendors WHERE in_slider = 1 AND status = 1 ORDER BY RAND()");
+if(mysqli_num_rows($r)) {
+	?>
+  <section id="index-brands" class="section-top-50">
+    <div class="container">
+      <div class="d-flex">
+				<?
+	      while($row = mysqli_fetch_assoc($r)) {
+	        ?><div class="d-flex align-items-center text-center"><a href="/vendors/#<?=$row['link']?>"><img src="/vendors/<?=$row['id']?>.jpg" title="<?=htmlspecialchars($row['name'])?>"></a></div><?
+				}
+				?>
+      </div>
+      <div class="section-top-20 section-bottom-50"><a class="link" href="/vendors/">ВСЕ БРЕНДЫ</a></div>
+    </div>
+  </section>
+	<?
+}
+
 $content = ob_get_clean();
 require('tpl/template.php');

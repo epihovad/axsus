@@ -21,13 +21,29 @@ if(isset($_GET['action']))
 
 			if(!$name) jAlert('Укажите название');
 
+			$updateLink = false;
+			$where = $id ? " and id<>{$id}" : "";
+
+			if($link){
+				if(getField("SELECT id FROM {$prx}{$tbl} WHERE link='{$link}'{$where}"))
+					$updateLink = true;
+			} else {
+				$link = makeUrl($name);
+				if(getField("SELECT id FROM {$prx}{$tbl} WHERE link='{$link}'{$where}"))
+					$updateLink = true;
+			}
+
 			$set = "name = '{$name}',
 			        text = '{$text}',
 			        in_slider = '{$in_slider}',
 							status = '{$status}'";
+			if(!$updateLink) $set .= ",link='{$link}'";
 
 			if(!$id = update($tbl,$set,$id))
 				jAlert('Во время сохранения данных произошла ошибка.');
+
+			if($updateLink)
+				update($tbl,"link='".($link.'_'.$id)."'",$id);
 
 			// загружаем картинку
 			if(sizeof((array)$_FILES[$tbl]['name'])){
@@ -88,6 +104,11 @@ if(isset($_GET['red']))
         <th></th>
         <th>Название</th>
         <td><?=input('text', 'name', $row['name'])?></td>
+      </tr>
+      <tr>
+        <th><?=help('ссылка формируется автоматически,<br>значение данного поля можно изменить')?></th>
+        <th>Ссылка</th>
+        <td><?=input('text', 'link', $row['link'])?></td>
       </tr>
 			<?=show_tr_images($id,'Изображение','Для корректного отображения,<br>рекомендуется загружать изображение размером не более 200x200 пискелей',1,$tbl,$tbl)?>
       <tr>
@@ -182,7 +203,8 @@ else
       <th style="width:1%"><input type="checkbox" name="check_del" id="check_del" /></th>
       <th style="width:1%">№</th>
       <th style="width:1%; text-align:center;"><img src="img/image.png" title="изображение" /></th>
-      <th width="100%"><?=SortColumn('Название','name')?></th>
+      <th width="50%"><?=SortColumn('Название','name')?></th>
+      <th width="50%"><?=SortColumn('Ссылка','link')?></th>
       <th nowrap><?=SortColumn('На главную','s.in_slider')?> <?=help('отображать логотип вендора на главной странице')?></th>
       <th nowrap><?=SortColumn('Статус','status')?></th>
       <th style="padding:0 30px;"></th>
@@ -213,6 +235,7 @@ else
             </a>
           </th>
           <td class="sp"><a href="?red=<?=$id?>"><?=$row['name']?></a></td>
+          <td class="sp">/vendors/#<a href="/vendors/#<?=$row['link']?>" class="clr-green" target="_blank"><?=$row['link']?></a></td>
           <th><?=btn_flag($row['in_slider'],$id,'action=in_slider&id=')?></th>
           <th><?=btn_flag($row['status'],$id,'action=status&id=')?></th>
           <th nowrap><?=btn_edit($id)?></th>
