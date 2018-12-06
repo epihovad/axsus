@@ -30,6 +30,11 @@
   <link href="/js/arcticmodal/jquery.arcticmodal-0.3.css" rel="stylesheet">
   <link href="/js/arcticmodal/themes/simple.css" rel="stylesheet">
 
+  <link href="/js/blueimp-gallery/css/blueimp-gallery.css" rel="stylesheet" type="text/css"/>
+  <link href="/js/blueimp-gallery/css/blueimp-gallery-indicator.css" rel="stylesheet">
+  <script src="/js/blueimp-gallery/js/blueimp-gallery.js"></script>
+  <script src="/js/blueimp-gallery/js/blueimp-gallery-indicator.js"></script>
+
   <link href="/js/jAlert/jAlert.css" rel="stylesheet" type="text/css" />
   <script src="/js/jAlert/jquery.jAlert.min.js"></script>
 
@@ -55,6 +60,16 @@
   <![endif]-->
 </head>
 <body>
+
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+  <div class="slides"></div>
+  <h3 class="title"></h3>
+  <a class="prev">‹</a>
+  <a class="next">›</a>
+  <a class="close"><i class="far fa-times-circle"></i></a>
+  <a class="play-pause"></a>
+  <ol class="indicator"></ol>
+</div>
 
 <!-- Page-->
 <div class="page text-center">

@@ -194,7 +194,7 @@ else {
   //$query .= "\r\nLIMIT " . ($count_obj_on_page * $cur_page - $count_obj_on_page) . ',' . $count_obj_on_page;
 
   ob_start();
-	pre($query);
+	//pre($query);
 
 	show_listview_btns('Добавить::Удалить');
 	ActiveFilters();
