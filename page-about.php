@@ -8,7 +8,8 @@
   @media (max-width: 767px) {
     #about-us .about-right { margin-top:30px;}
   }
-  .owl-carousel .im { width:290px; height:200px; background-repeat: no-repeat; background-position: center center; }
+  .owl-carousel .owl-item { margin-top:10px; margin-bottom:10px;}
+  .owl-carousel .im { width:290px; height:200px; background-repeat: no-repeat; background-position: center center; box-shadow:0 0 10px #ccc; }
   #our-sert { background-color:#f8f8f8;}
 </style>
 

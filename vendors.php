@@ -4,16 +4,36 @@ require('inc/common.php');
 if(isset($_GET['action'])){
   switch ($_GET['action']){
     //
+    case 'vendor_list':
+      $search = clean($_GET['search']);
+      $where = '';
+      if($search){
+        $where = " AND (name like '%{$search}%' OR link like '%{$search}%')";
+      }
+
+			$r = sql("SELECT * FROM {$prx}vendors WHERE in_slider = 1 AND status = 1{$where} ORDER BY name");
+			if(mysqli_num_rows($r)) {
+				while($row = mysqli_fetch_assoc($r)) {
+					?>
+          <a class="row" href="/vendors/#<?=$row['link']?>">
+            <div class="col vendor-logo"><img src="/vendors/60x30/<?=$row['id']?>.jpg"></div>
+            <div class="col vendor-name"><?=$row['name']?></div>
+          </a>
+					<?
+				}
+			}
+
+      exit;
+    //
     case 'vendor_content':
 
       ob_start();
 			?>
       <style>
-        h1 { padding-top:40px;}
-        .nofind { text-align:center; padding-top:20px; }
         .nofind .code { font-weight:normal; font-size:210px; margin:0 auto; text-align: center;}
       </style>
-      <div class="nofind">Запрашиваемая страница не найдена<div class="code"><?=rand(100,200)?></div></div>
+      <h1 class="section-34">Страница не найдена</h1>
+      <div class="nofind text-center">Запрашиваемая страница не найдена<div>перейти на <a href="/">главную страницу</a><div class="code">404</div></div>
 			<?
       $nofind = ob_get_clean();
 
@@ -33,13 +53,13 @@ if(isset($_GET['action'])){
         <div class="col vendor-name"><?=$vendor['name']?></div>
       </h2>
       <div class="vendor-info content section-top-34"><?=$vendor['text']?></div>
-
-      <h3 class="section-top-34">Наши сертификаты</h3>
       <?
 
-			$r = sql("SELECT * FROM {$prx}sertificates WHERE /*id_vendor = {$vendor['id']} AND */type = 'общий' AND status = 1 ORDER BY sort, id");
+			$r = sql("SELECT * FROM {$prx}sertificates WHERE id_vendor = {$vendor['id']} AND type = 'общий' AND status = 1 ORDER BY sort, id");
 			if(mysqli_num_rows($r)){
-			  ?><div class="vendor-sert d-flex"><?
+			  ?>
+        <h3 class="section-top-34">Наши сертификаты</h3>
+        <div class="vendor-sert d-flex"><?
 				$i = 0;
         while($sert = mysqli_fetch_assoc($r)) {
 					$id = $sert['id'];
@@ -54,7 +74,10 @@ if(isset($_GET['action'])){
           </div>
           <?
 				}
-        ?></div><?
+        ?>
+        </div>
+        <div class="clearfix section-bottom-34"></div>
+        <?
       }
 
       exit;
@@ -84,6 +107,11 @@ ob_start();
   .vendors-list-col { background-color:#f8f8f8;}
   .vendor-content-col { background-color:#fff;}
 
+  .vendor-search .form-group { width:240px; float:left; }
+  .vendor-search .form-group input { padding:8px 20px;}
+  .vendor-search a { float:right; font-size:20px; color:#a0a0a0; margin-top:8px; display:none;}
+  .vendor-search a:hover { color:#37474f;}
+
   .vendors-list .row { padding-top:10px; margin:0; align-items: center; justify-content: center; transition: .3s all ease;}
   .vendors-list .vendor-logo { flex: 0 0 60px; text-align:center; padding:10px 0 0 0;}
   .vendors-list .vendor-logo img { opacity:0.7; transition: .3s all ease;}
@@ -99,7 +127,7 @@ ob_start();
   .vendor-content h3 { font-size:38px;}
   .vendor-sert.d-flex { flex-wrap:wrap; align-items:flex-start; }
   .vendor-sert.d-flex .d-flex { flex: 0 0 33%; padding: 40px 0 0 0; justify-content: center; }
-  .vendor-sert .im { width:250px; height:170px; background-repeat: no-repeat; background-position: center center; }
+  .vendor-sert .im { width:250px; height:170px; background-repeat: no-repeat; background-position: center center; box-shadow:0 0 10px #ccc; }
   .vendor-sert a img { display:none;}
 
   .blueimp-gallery { background:rgba(0, 0, 0, 0.7); }
@@ -113,9 +141,10 @@ ob_start();
   $(function () {
     var vendor = url('hash');
     //
+    $('.vendors-list a[href$="' + vendor + '"]').addClass('active');
     LoadVendorContent(vendor);
     //
-    $('.vendors-list a').on('click', function () {
+    $(document).on('click', '.vendors-list a', function () {
       var v = url('hash', $(this).attr('href'));
       if(v == vendor){
         return false;
@@ -125,35 +154,44 @@ ob_start();
       $(this).addClass('active');
       LoadVendorContent(v, true);
     });
-    /*
-    $('#igallery .item a').click(function () {
-    var $par = $(this).parents('#igallery-photo').length ? $(this).parents('#igallery-photo') : $(this).parents('#igallery-video');
-    var ind = parseInt($(this).attr('ind'));
-    ind = isNaN(ind) ? 0 : ind;
-    var $im = $par.find('.item a[ind=' + ind + ']');
-    var link = $im.attr('href'),
-      options = {index: link, index: ind},
-      links = $par.find('.item a');
-    blueimp.Gallery(links, options);
-    return false;
-  });
-     */
     //
     $(document).on('click','.vendor-sert a',function () {
-      /*event = event || window.event;
-      var target = event.target || event.srcElement,
-        link = target.src ? target.parentNode : target,
-        options = {index: link, event: event},
-        links = this.getElementsByTagName('a');
-      blueimp.Gallery(links, options);*/
       var ind = parseInt($(this).attr('ind'));
       var link = $(this).attr('href'),
         options = {index: link, index: ind},
         links = $('.vendor-sert a');
       blueimp.Gallery(links, options);
       return false;
-    })
+    });
+    //
+    LoadVendorList();
+    //
+    $('.vendor-search input').on('keyup',function () {
+      LoadVendorList();
+    });
+    //
+    $('.vendor-search a').on('click',function () {
+      $('.vendor-search input').val('');
+      $(this).hide();
+      LoadVendorList();
+      return false;
+    });
   });
+
+  function LoadVendorList() {
+    var $input = $('.vendor-search input');
+    var $clear = $('.vendor-search a');
+    var v = $input.val();
+    if(v.length){
+      $clear.show();
+    } else {
+      $clear.hide();
+    }
+    $input.attr('disabled',true);
+    $('.vendors-list').load('/vendors.php?action=vendor_list&search=' + encodeURIComponent(v), function () {
+      $input.attr('disabled', false);
+    });
+  }
 
   function LoadVendorContent(vendor, scroll) {
     if(scroll) {
@@ -187,24 +225,17 @@ ob_start();
     <div class="row">
 
       <div class="vendors-list-col col-lg-3 section-34">
-        <div class="form-group">
-          <input class="form-control" type="text" placeholder="Поиск бренда">
+
+        <div class="vendor-search">
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="Поиск бренда">
+          </div>
+          <a href=""><i class="fas fa-times"></i></a>
+          <div class="clearfix"></div>
         </div>
-        <?
-				$r = sql("SELECT * FROM {$prx}vendors WHERE in_slider = 1 AND status = 1 ORDER BY name");
-				if(mysqli_num_rows($r)) {
-					?><div class="vendors-list"><?
-            while($row = mysqli_fetch_assoc($r)) {
-              ?>
-              <a class="row" href="/vendors/#<?=$row['link']?>">
-                <div class="col vendor-logo"><img src="/vendors/60x30/<?=$row['id']?>.jpg"></div>
-                <div class="col vendor-name"><?=$row['name']?></div>
-              </a>
-              <?
-            }
-          ?></div><?
-				}
-        ?>
+
+        <div class="vendors-list"></div>
+
       </div>
 
       <div class="vendor-content-col col-lg-9 section-34">
