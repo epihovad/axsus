@@ -6,6 +6,7 @@ if(isset($_GET['action'])){
     //
     case 'vendor_list':
       $search = clean($_GET['search']);
+			$vendor = $_GET['vendor'];
       $where = '';
       if($search){
         $where = " AND (name like '%{$search}%' OR link like '%{$search}%')";
@@ -15,7 +16,7 @@ if(isset($_GET['action'])){
 			if(mysqli_num_rows($r)) {
 				while($row = mysqli_fetch_assoc($r)) {
 					?>
-          <a class="row" href="/vendors/#<?=$row['link']?>">
+          <a class="row<?=$vendor==$row['link']?' active':''?>" href="/vendors/#<?=$row['link']?>">
             <div class="col vendor-logo"><img src="/vendors/60x30/<?=$row['id']?>.jpg"></div>
             <div class="col vendor-name"><?=$row['name']?></div>
           </a>
@@ -42,9 +43,9 @@ if(isset($_GET['action'])){
         exit;
       }
 
-      if(!$vendor = getRow("SELECT * FROM {$prx}vendors WHERE link = '{$vendor}' AND status = 1")){
-				echo $nofind;
-				exit;
+			if(!$vendor = getRow("SELECT * FROM {$prx}vendors WHERE link = '{$vendor}' AND status = 1")) {
+        echo $nofind;
+        exit;
       }
 
       ?>
@@ -138,10 +139,14 @@ ob_start();
 
 <script src="/js/js-url-master/url.min.js"></script>
 <script>
+  var vendor;
+
   $(function () {
-    var vendor = url('hash');
+    vendor = url('hash');
     //
-    $('.vendors-list a[href$="' + vendor + '"]').addClass('active');
+    if(vendor == undefined){
+      vendor = 'hewlett-packard';
+    }
     LoadVendorContent(vendor);
     //
     $(document).on('click', '.vendors-list a', function () {
@@ -188,7 +193,7 @@ ob_start();
       $clear.hide();
     }
     $input.attr('disabled',true);
-    $('.vendors-list').load('/vendors.php?action=vendor_list&search=' + encodeURIComponent(v), function () {
+    $('.vendors-list').load('/vendors.php?action=vendor_list&search=' + encodeURIComponent(v) + '&vendor=' + vendor, function () {
       $input.attr('disabled', false);
     });
   }
@@ -200,6 +205,7 @@ ob_start();
     var content = $('.vendor-content');
     content.fadeOut('slow', function () {
       content.load('/vendors.php?action=vendor_content&vendor=' + vendor, function () {
+        $('.vendors-list a[href$="' + vendor + '"]').addClass('active');
         content.fadeIn('fast');
       });
     });

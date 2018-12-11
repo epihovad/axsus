@@ -144,7 +144,7 @@ if(mysqli_num_rows($r)) {
 				}
 				?>
       </div>
-      <div class="section-top-20 section-bottom-50"><a class="link" href="/vendors/">ВСЕ БРЕНДЫ</a></div>
+      <div class="section-top-20 section-bottom-50"><a class="btn btn-default" href="/vendors/">все бренды</a></div>
     </div>
   </section>
 	<?

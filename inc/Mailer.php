@@ -12,10 +12,10 @@ class Mailer extends PHPMailer {
 		$this->SMTPDebug = 0;
 		$this->Debugoutput = 'html';
 		$this->isHTML(true);
-		$this->Host = 'smtp.timeweb.ru';
+		$this->Host = 'smtp.mail.ru';
 		$this->Username = '';
-		$this->Password = '';
-		$this->setFrom('info@domain.ru', 'Отправитель');
+		$this->Password = 'P@ssw0rd';
+		$this->setFrom('info@axsus.ru', 'АКСИС ПРОЕКТЫ');
 	}
 
 	// $emails - массив адресатов array('test1@mail.ru'=>'Тест Петрович','test2@mail.ru'=>'Тест Иванович')
