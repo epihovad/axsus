@@ -138,7 +138,7 @@
 </section>
 
 <?
-$r = sql("SELECT * FROM {$prx}sertificates WHERE type = 'общий' AND status = 1 ORDER BY sort, id");
+$r = sql("SELECT * FROM {$prx}sertificates WHERE type = 'общий' AND in_slider = 1 AND status = 1 ORDER BY sort, id");
 if(mysqli_num_rows($r)){
   ?>
   <section id="our-sert" class="section-34 section-md-50 section-lg-72">
@@ -155,13 +155,14 @@ if(mysqli_num_rows($r)){
     }
     ?>
     </div>
+    <div class="section-top-50"><a class="btn btn-default btn-link" href="/vendors/">смотреть все сертификаты</a></div>
   </section>
   <?
 }
 ?>
 
 <?
-$r = sql("SELECT * FROM {$prx}sertificates WHERE type = 'индивидуальный' AND status = 1 ORDER BY sort, id");
+$r = sql("SELECT * FROM {$prx}sertificates WHERE type = 'индивидуальный' AND in_slider = 1 AND status = 1 ORDER BY sort, id");
 if(mysqli_num_rows($r)){
 	?>
   <section id="our-advance" class="section-top-34 section-md-top-50 section-lg-top-72">

@@ -89,37 +89,37 @@ ob_start();
         <img src="/img/index-order-way-start.png">
       </div>
       <div class="d-flex align-items-center text-center">
-        Вы оставляете заявку по телефону или электронной почте.
+        Оставьте заявку по телефону или электронной почте.
       </div>
       <div class="d-flex align-items-center text-center">
         <img src="/img/index-order-way-arrow.png">
       </div>
       <div class="d-flex align-items-center text-center">
-        С вами связывается персональный  менеджер. Он уточняет детали и принимает заказ в работу.
+        С вами свяжется персональный менеджер. Он уточнит детали и примет заказ в работу.
       </div>
       <div class="d-flex align-items-center text-center">
         <img src="/img/index-order-way-arrow.png">
       </div>
       <div class="d-flex align-items-center text-center">
-        Менеджер составляет одно или несколько коммерческих  предложений с ценами и условиями поставки.
+        Менеджер составит одно или несколько коммерческих предложений с ценами и условиями поставки.
       </div>
       <div class="d-flex align-items-center text-center">
         <img src="/img/index-order-way-arrow.png">
       </div>
       <div class="d-flex align-items-center text-center">
-        Вы выбираете финальное КП. Обсуждаем условия поставки и подписываем договор.
+        Вы выберете финальное КП. Мы обсудим условия поставки и подпишем договор.
       </div>
       <div class="d-flex align-items-center text-center">
         <img src="/img/index-order-way-arrow.png">
       </div>
       <div class="d-flex align-items-center text-center">
-        Мы поставляем вам оборудование и комплект необходимых сопроводительных документов в сроки, предусмотренные договором
+        Мы поставим вам оборудование и комплект сопроводительных документов в сроки, предусмотренные договором
       </div>
       <div class="d-flex align-items-center text-center">
         <img src="/img/index-order-way-arrow.png">
       </div>
       <div class="d-flex align-items-center text-center">
-        Монтаж, настройка и тестирование оборудования (производятся по желанию заказчика)
+        Произведем монтаж, настройку и тестирование оборудования (по желанию заказчика)
       </div>
       <div class="d-flex align-items-center text-center">
         <img src="/img/index-order-way-finish.png">
@@ -144,7 +144,7 @@ if(mysqli_num_rows($r)) {
 				}
 				?>
       </div>
-      <div class="section-top-20 section-bottom-50"><a class="btn btn-default" href="/vendors/">все бренды</a></div>
+      <div class="section-top-20 section-bottom-50"><a class="btn btn-default btn-link" href="/vendors/">все бренды</a></div>
     </div>
   </section>
 	<?

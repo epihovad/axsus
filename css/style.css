@@ -192,6 +192,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .page-footer ul.list { font-size:14px;}
 
 a.btn, button { text-transform:uppercase; cursor:pointer;}
+a.btn-link {background-color: #e4e4e4; border-color: #d7d7d7; color: #37474f; text-decoration:none; font-weight:700; }
+a.btn-link:hover { background-color:#ccc; border-color: #d7d7d7; color: #37474f; text-decoration:none;}
 
 #nav-up, #nav-down {
 	font-size: 24px;

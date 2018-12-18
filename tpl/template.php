@@ -15,7 +15,7 @@
 
   <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="/css/bootstrap.css" rel="stylesheet">
-  <link href="/css/style.css?v=20181129" rel="stylesheet" />
+  <link href="/css/style.css?v=20181218" rel="stylesheet" />
   <link href="/css/media.css?v=20181129" rel="stylesheet" />
   <link href="/css/style_new.css?v=20181129" rel="stylesheet">
 
@@ -114,13 +114,14 @@
     <? $header_content = ob_get_clean(); ?>
 
     <? if($index){ ?>
-      <div class="jquery-background-video-wrapper">
+      <?/*<div class="jquery-background-video-wrapper">
 
         <video class="axsus-bg jquery-background-video" loop autoplay muted poster="/img/axsus-bg.jpg">
           <source src="/img/axsus-bg.mp4" type="video/mp4">
           <source src="/img/axsus-bg.webm" type="video/webm">
           <source src="/img/axsus-bg.ogv" type="video/ogg">
-        </video>
+        </video>*/?>
+      <div style="background-image:url(/img/header-bg.jpg); background-repeat:no-repeat; background-position:center; background-size:cover;">
 
         <?=$header_content?>
 
@@ -138,7 +139,7 @@
 								}
 								?>
               </ul>
-              <img id="header-map" src="/img/header-map.png" style="display:none">
+              <?/*<img id="header-map" src="/img/header-map.png" style="display:none">*/?>
             </div>
           </div>
         </div>
