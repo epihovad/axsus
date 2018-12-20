@@ -12,7 +12,7 @@ if(isset($_GET['action'])){
         $where = " AND (name like '%{$search}%' OR link like '%{$search}%')";
       }
 
-			$r = sql("SELECT * FROM {$prx}vendors WHERE in_slider = 1 AND status = 1{$where} ORDER BY name");
+			$r = sql("SELECT * FROM {$prx}vendors WHERE status = 1{$where} ORDER BY name");
 			if(mysqli_num_rows($r)) {
 				while($row = mysqli_fetch_assoc($r)) {
 					?>

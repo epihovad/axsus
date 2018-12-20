@@ -195,7 +195,7 @@ aside#sidebar { position: absolute; left: 0; top: 60px; width: 230px; }
 .table-list tbody > tr > th.active,
 .table-list tbody > tr.active > td,
 .table-list tbody > tr.active > th {
-	background-color: #fcf8e3;
+	background-color: #faffab;
 }
 .table-list > tbody > tr > td.success,
 .table-list > tbody > tr > th.success,

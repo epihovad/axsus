@@ -140,7 +140,11 @@ if(mysqli_num_rows($r)) {
       <div class="d-flex">
 				<?
 	      while($row = mysqli_fetch_assoc($r)) {
-	        ?><div class="d-flex align-items-center text-center"><a href="/vendors/#<?=$row['link']?>"><img src="/vendors/<?=$row['id']?>.jpg" title="<?=htmlspecialchars($row['name'])?>"></a></div><?
+	        $id = $row['id'];
+					$size = getimagesize($_SERVER['DOCUMENT_ROOT'] . "/uploads/vendors/{$id}.jpg");
+					$horizon = $size[0] >= $size[1];
+					$size = $horizon ? '100x-' : '-x100';
+	        ?><div class="d-flex align-items-center text-center"><a href="/vendors/#<?=$row['link']?>"><img src="/vendors/<?=$size?>/<?=$row['id']?>.jpg" title="<?=htmlspecialchars($row['name'])?>"></a></div><?
 				}
 				?>
       </div>
