@@ -36,8 +36,8 @@
   #page-service .service-slogan2 h3 { margin:0 auto; font-size:24px; line-height:30px;}
   #page-service .service-slogan3 h1 { margin:0 auto; }
 
-  #page-service .link-manager .d-flex { flex-wrap:wrap; justify-content:center; align-content:center; }
-  #page-service .link-manager .d-flex .d-flex { flex: 0 0 50%; padding:0 15px; }
+  #page-service .link-manager .cols { width:100%; display:table-row;}
+  #page-service .link-manager .col { width:50%; vertical-align:middle; display:table-cell;}
 
   #page-service #service-other .d-flex { flex-wrap:wrap; }
   #page-service #service-other .d-flex .d-flex { flex: 0 0 50%; padding:0 15px; text-align:left; }
@@ -77,8 +77,8 @@
     #page-service .service-list { line-height: 22px; font-size: 14px;}
     #outsource .srv-wrap { margin-left:0 !important; margin-right:0 !important;}
 
-    #page-service .link-manager .d-flex .d-flex { flex: 0 0 100%; }
-    #page-service .link-manager .d-flex .d-flex:nth-child(1) { padding-bottom:20px;}
+    #page-service .link-manager .cols { width:100%; display:block;}
+    #page-service .link-manager .col { width:100%; display:block; padding-top:15px;}
 
     #page-service #service-other .d-flex .d-flex { flex: 0 0 100%; }
     #page-service #service-other .d-flex .d-flex:nth-child(2) { margin-top:20px;}
@@ -275,14 +275,14 @@
 
   <section class="link-manager">
     <div class="container section-34">
-      <div class="d-flex">
-        <div class="d-flex">
+      <div class="cols">
+        <div class="col">
           <p class="lead">
             Если вы не нашли в этом перечне нужной вам услуги, это не повод для расстройства.
             Просто свяжитесь с нашими менеджерами, и мы оперативно решим вашу проблему.
           </p>
         </div>
-        <div class="d-flex">
+        <div class="col">
           <a class="btn btn-primary fb-btn" href="#">связаться с менеджером</a>
         </div>
       </div>
@@ -324,14 +324,14 @@
 
   <section class="link-manager">
     <div class="container section-34">
-      <div class="d-flex">
-        <div class="d-flex">
+      <div class="cols">
+        <div class="col">
           <p class="lead">
             Если среди перечисленных услуг не оказалось той, которая нужна вашей компании, смело звоните нам
             по телефону <a href="callto:84992133401">8 (499) 213-34-01</a> и рассказывайте о своей проблеме.
           </p>
         </div>
-        <div class="d-flex">
+        <div class="col">
           <p class="lead section-bottom-15 w-100">Или просто нажимайте на эту кнопку:</p>
           <a class="btn btn-primary fb-btn" href="#">связаться с менеджером</a>
         </div>

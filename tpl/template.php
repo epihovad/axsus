@@ -97,8 +97,8 @@
             <!-- RD Navbar Brand-->
             <div class="rd-navbar-brand">
               <ul>
-                <li><a class="fab fa-instagram icon icon-dark icon-xs" href="#"></a></li>
-                <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="#"></a></li>
+                <li><a class="fab fa-instagram icon icon-dark icon-xs" href="<?=set('instagram')?>" target="_blank"></a></li>
+                <li><a class="fab fa-facebook-f icon icon-dark icon-xs" href="<?=set('facebook')?>" target="_blank"></a></li>
               </ul>
               <a href="/" style="display:inline-block"><img class="img-responsive" alt="" src="/img/logo.png"></a>
             </div>
