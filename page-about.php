@@ -11,7 +11,26 @@
   .owl-carousel .owl-item { margin-top:10px; margin-bottom:10px;}
   .owl-carousel .im { width:290px; height:200px; background-repeat: no-repeat; background-position: center center; box-shadow:0 0 10px #ccc; }
   #our-sert { background-color:#f8f8f8;}
+  a.gallery img { display:none;}
+  .blueimp-gallery { background:rgba(0, 0, 0, 0.7); }
+  .blueimp-gallery > .indicator > li { background-size:cover; background-position:center; width:50px; height:50px; border-radius:0;}
+  .blueimp-gallery > .indicator > li::after { display:none !important;}
 </style>
+
+<script>
+  $(function () {
+    //
+    $(document).on('click','a.gallery',function () {
+      var id = $(this).parents('section:first').attr('id');
+      var ind = $(this).index('#' + id + ' a.gallery');
+      var link = $(this).attr('href'),
+        options = {index: link, index: ind},
+        links = $('#' + id + ' a.gallery');
+      blueimp.Gallery(links, options);
+      return false;
+    });
+  })
+</script>
 
 <section id="about-us" data-parallax="scroll" data-image-src="/img/about-bg.jpg">
   <div class="container">
@@ -145,13 +164,17 @@ if(mysqli_num_rows($r)){
   <div class="container">
     <h2>Наши сертификаты</h2>
     <p class="lead section-top-15 section-bottom-50">Мы являемся сертифицированными партнерами<br>ведущих мировых производителей</p>
-    <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30"><?
-    while($row = mysqli_fetch_assoc($r)) {
+    <div class="owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30"><?
+      while($row = mysqli_fetch_assoc($r)) {
       $id = $row['id'];
 			$size = getimagesize($_SERVER['DOCUMENT_ROOT'] . "/uploads/sertificates/{$id}.jpg");
 			$horizon = $size[0] >= $size[1];
 			$size = $horizon ? '290x-' : '-x200';
-			?><div class="d-flex justify-content-center"><a href="#"><div class="im" style="background-image:url(/sertificates/<?=$size?>/<?=$id?>.jpg)"></div></a></div><?
+			?><div class="d-flex justify-content-center">
+      <a class="gallery" href="/sertificates/<?=$id?>.jpg" title="<?=htmlspecialchars($row['name'])?>">
+        <img src="/sertificates/60x60/<?=$id?>.jpg"><div class="im" style="background-image:url(/sertificates/<?=$size?>/<?=$id?>.jpg)"></div>
+      </a>
+      </div><?
     }
     ?>
     </div>
@@ -169,13 +192,17 @@ if(mysqli_num_rows($r)){
     <div class="container">
       <h2>Наши успехи и достижения</h2>
       <p class="lead section-top-15 section-bottom-50">отмечают не только довольные клиенты, но и партнеры по бизнесу</p>
-      <div class="text-center owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30"><?
-				while($row = mysqli_fetch_assoc($r)) {
+      <div class="owl-carousel owl-carousel-flex" data-nav="true" data-md-items="2" data-lg-items="3" data-loop="true" data-drag="false" data-margin="30"><?
+        while($row = mysqli_fetch_assoc($r)) {
 					$id = $row['id'];
 					$size = getimagesize($_SERVER['DOCUMENT_ROOT'] . "/uploads/sertificates/{$id}.jpg");
 					$horizon = $size[0] >= $size[1];
 					$size = $horizon ? '290x-' : '-x200';
-					?><div class="d-flex justify-content-center"><a href="#"><div class="im" style="background-image:url(/sertificates/<?=$size?>/<?=$id?>.jpg)"></div></a></div><?
+					?><div class="d-flex justify-content-center">
+          <a class="gallery" href="/sertificates/<?=$id?>.jpg" title="<?=htmlspecialchars($row['name'])?>">
+            <img src="/sertificates/60x60/<?=$id?>.jpg"><div class="im" style="background-image:url(/sertificates/<?=$size?>/<?=$id?>.jpg)"></div>
+          </a>
+          </div><?
 				}
 				?>
       </div>

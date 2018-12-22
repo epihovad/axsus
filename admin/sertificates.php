@@ -149,28 +149,14 @@ else {
 	$filters['day_end'] = "выбор сертификатов по Дате (ПО дату)";
 
 	$where = '';
-
-	$filtersArr = array(
-	  'vendors' => 'v.name',
-		'type' => 's.type',
-	);
-	$where .= filtersWhere($filtersArr);
+	$where .= FiltersWhere(['vendors' => 's.id_vendor', 'type' => 's.type']);
+	$where .= FiltersSearch(['s.name','s.text']);
 
 	//
 	if($fl['day_start']){     $where .= "\r\nAND s.date >= '" . date('Y-m-d', strtotime($fl['day_start'])) . "'"; }
 	if($fl['day_end']){       $where .= "\r\nAND s.date < '" . date('Y-m-d', strtotime($fl['day_end'] . '+1 days')) . "'"; }
 	if($fl['day_exp_start']){ $where .= "\r\nAND s.date_expiration >= '" . date('Y-m-d', strtotime($fl['day_exp_start'])) . "'"; }
 	if($fl['day_exp_end']){   $where .= "\r\nAND s.date_expiration < '" . date('Y-m-d', strtotime($fl['day_exp_end'] . '+1 days')) . "'"; }
-
-	//
-	if($fl['search'] != ''){
-		$sf = array('s.name','s.text');
-		$w = '';
-		foreach ($sf as $field){
-			$w .= ($w ? ' OR' : '') . "\r\n{$field} LIKE '%" . $fl['search'] . "%'";
-		}
-		$where .= "\r\nAND ({$w}\r\n)";
-	}
 
 	$query  = "SELECT s.*, v.name as vendor\r\n";
 	$query .= "FROM {$prx}{$tbl} s\r\n";

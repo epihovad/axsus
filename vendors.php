@@ -130,10 +130,6 @@ ob_start();
   .vendor-sert.d-flex .d-flex { flex: 0 0 33%; padding: 40px 0 0 0; justify-content: center; }
   .vendor-sert .im { width:250px; height:170px; background-repeat: no-repeat; background-position: center center; box-shadow:0 0 10px #ccc; }
   .vendor-sert a img { display:none;}
-
-  .blueimp-gallery { background:rgba(0, 0, 0, 0.7); }
-  .blueimp-gallery > .indicator > li { background-size:cover; width:50px; height:50px; border-radius:0;}
-  .blueimp-gallery > .indicator > li::after { display:none !important;}
 </style>
 
 
