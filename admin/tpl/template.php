@@ -37,7 +37,7 @@
   <script src="/js/js-url-master/url.min.js"></script>
 
   <script type="text/javascript" src="/js/utils.js"></script>
-  <script type="text/javascript" src="js/spec.js"></script>
+  <script type="text/javascript" src="js/spec.js?v=20181225"></script>
 
   <script type="text/javascript" src="/js/moment.min.js"></script>
 

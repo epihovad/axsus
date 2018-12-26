@@ -102,7 +102,9 @@ function MarkChangeRow() {
     return;
   }
   $('tr#item-'+id).addClass('active');
-  $('html, body').stop().animate({scrollTop: $('tr#item-'+id).offset().top}, 800, 'swing', function () {});
+  setTimeout(function () {
+    $('html, body').stop().animate({scrollTop: $('tr#item-'+id).offset().top}, 800, 'swing', function () {});
+  }, 1000);
 }
 
 function Filters() {

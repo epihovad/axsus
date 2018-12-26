@@ -218,7 +218,7 @@ ob_start();
       положительная репутация компании являются основой доверительных
       надежных отношений с поставщиками.
     </p>
-    <div class="section-top-50 section-bottom-50 section-sm-bottom-34 section-md-bottom-50"><a class="btn btn-primary fb-btn" href="#">получить бесплатную консультацию</a></div>
+    <div class="section-top-50 section-bottom-50 section-sm-bottom-34 section-md-bottom-50"><a class="btn btn-primary fb-btn" href="#">получить консультацию</a></div>
   </div>
 </section>
 

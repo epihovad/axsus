@@ -36,7 +36,7 @@ ob_start();
       </div>
     </div>
     <div class="cons-btn section-top-50 section-bottom-34 section-sm-bottom-34 section-md-bottom-34">
-      <a class="btn btn-primary fb-btn" href="#">получить бесплатную консультацию</a>
+      <a class="btn btn-primary fb-btn" href="#">получить консультацию</a>
     </div>
   </div>
 </section>
@@ -76,7 +76,7 @@ ob_start();
       </div>
     </div>
     <div class="cons-btn section-top-50 section-bottom-34 section-sm-bottom-34 section-md-bottom-34">
-      <a class="btn btn-primary fb-btn" href="#">получить бесплатную консультацию</a>
+      <a class="btn btn-primary fb-btn" href="#">получить консультацию</a>
     </div>
   </div>
 </section>
@@ -126,7 +126,7 @@ ob_start();
       </div>
     </div>
     <div class="cons-btn section-top-50 section-bottom-34 section-sm-bottom-34 section-md-bottom-34">
-      <a class="btn btn-primary fb-btn" href="#">получить бесплатную консультацию</a>
+      <a class="btn btn-primary fb-btn" href="#">получить консультацию</a>
     </div>
   </div>
 </section>
